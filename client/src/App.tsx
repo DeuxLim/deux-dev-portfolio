@@ -1,8 +1,12 @@
+import { RouterProvider } from "react-router";
+import ThemeProvider from "@/context/Theme/ThemeProvider";
+import routes from "@/routes";
+
 function App() {
 	return (
-		<main className="h-screen w-full bg-black">
-			
-		</main>
+		<ThemeProvider>
+			<RouterProvider router={routes} />
+		</ThemeProvider>
 	);
 }
 
