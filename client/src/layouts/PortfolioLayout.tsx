@@ -1,20 +1,13 @@
-import useTheme from "@/context/Theme/useTheme";
+import ThemeToggleButton from "@/components/ThemeToggleButton";
 
 export default function PortfolioLayout() {
-	const { toggleTheme } = useTheme();
-
-	const handleToggleTheme = () => {
-		toggleTheme();
-	};
-
 	return (
-		<div className="dark:bg-black">
-			<button
-				className="dark:text-white p-2 border"
-				onClick={handleToggleTheme}
-			>
-				TOGGLE ME
-			</button>
+		<div className="h-screen bg-white dark:bg-black">
+			<div className="h-full grid grid-cols-12 gap-2">
+				<div className="col-start-3 col-span-8 flex justify-center items-center">
+					<ThemeToggleButton />
+				</div>
+			</div>
 		</div>
 	);
 }

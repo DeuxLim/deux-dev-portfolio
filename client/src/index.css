@@ -1,5 +1,8 @@
 @import "tailwindcss";
 
+/* Tailwind v4 default dark mode is media-based; make `dark:` respond to `.dark` class. */
+@custom-variant dark (&:where(.dark, .dark *));
+
 @layer base {
 	:root {
 		color-scheme: light;
