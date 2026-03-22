@@ -14,8 +14,8 @@ export default function Home() {
 	const { isDarkMode } = useTheme();
 	return (
 		<main className={`${isDarkMode ? "text-white" : "text-black"}`}>
-			<div className="w-full flex items-center justify-center mb-10">
-				<div className="md:hidden size-40 overflow-hidden shrink-0 rounded-full shadow-md">
+			<div className="w-full md:hidden flex items-center justify-center mb-10 h-50 rounded-4xl bg-[url('./src/assets/coverphoto.jpg')] bg-cover bg-center">
+				<div className="md:hidden size-40 overflow-hidden shrink-0 rounded-full shadow-lg">
 					<img
 						src={me}
 						alt=""
@@ -28,7 +28,7 @@ export default function Home() {
 			<section className="flex gap-4 h-40">
 				{/* Profile picture */}
 				<div className="hidden h-full md:flex items-center justify-center">
-					<div className="md:flex md:h-40 overflow-hidden shrink-0">
+					<div className="md:flex md:h-40 overflow-hidden shrink-0 rounded-lg">
 						<img
 							src={me}
 							alt=""
@@ -63,23 +63,25 @@ export default function Home() {
 					</div>
 					{/* Bottom */}
 					<div className="flex gap-1 flex-wrap">
-						<div className="flex items-center justify-center gap-1 px-2 py-1 rounded-md hover:shadow-lg border border-gray-100 cursor-pointer">
+						<div className="flex items-center justify-center gap-1 px-2 py-1 rounded-md hover:shadow-lg border dark:border-0 dark:hover:bg-zinc-800 border-zinc-100 cursor-pointer">
 							<IoLogoGithub className="text-2xl" />
 							<div className="text-xs font-light">Github</div>
 						</div>
-						<div className="flex items-center justify-center gap-1 px-2 py-1 rounded-md hover:shadow-lg border border-gray-100 cursor-pointer">
+						<div className="flex items-center justify-center gap-1 px-2 py-1 rounded-md hover:shadow-lg border dark:border-0 dark:hover:bg-zinc-800 border-zinc-100 cursor-pointer">
 							<IoLogoLinkedin className="text-2xl" />
 							<div className="text-xs font-light">LinkedIn</div>
 						</div>
-						<div className="flex items-center justify-center gap-1 px-2 py-1 rounded-md hover:shadow-lg border border-gray-100 cursor-pointer">
+						<div className="flex items-center justify-center gap-1 px-2 py-1 rounded-md hover:shadow-lg border dark:border-0 dark:hover:bg-zinc-800 border-zinc-100 cursor-pointer">
 							<IoCall className="text-2xl" />
 							<div className="text-xs font-light text-nowrap">
 								+63 945-428-6156
 							</div>
 						</div>
-						<div className="flex items-center justify-center gap-1 px-2 py-1 rounded-md hover:shadow-lg border border-gray-100 cursor-pointer">
+						<div className="flex items-center justify-center gap-1 px-2 py-1 rounded-md hover:shadow-lg border dark:border-0 dark:hover:bg-zinc-800 border-zinc-100 cursor-pointer">
 							<IoMail className="text-2xl" />
-							<div className="text-xs font-light">limdeux27@gmail.com</div>
+							<div className="text-xs font-light">
+								limdeux27@gmail.com
+							</div>
 						</div>
 					</div>
 				</div>
