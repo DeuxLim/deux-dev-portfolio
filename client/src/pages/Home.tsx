@@ -1,6 +1,5 @@
 import me from "@/assets/me.jpeg";
 import ThemeToggleButton from "@/components/ThemeToggleButton";
-import useTheme from "@/context/Theme/useTheme";
 import {
 	IoBriefcase,
 	IoCall,
@@ -11,10 +10,10 @@ import {
 } from "react-icons/io5";
 
 export default function Home() {
-	const { isDarkMode } = useTheme();
 	return (
-		<main className={`${isDarkMode ? "text-white" : "text-black"}`}>
-			<div className="w-full md:hidden flex items-center justify-center mb-10 h-50 rounded-4xl bg-[url('./src/assets/coverphoto.jpg')] bg-cover bg-center">
+		<main className="flex flex-col gap-4 px-8">
+			{/* Mobile Profile And Cover */}
+			<div className="w-full md:hidden flex items-center justify-center h-50 rounded-4xl bg-[url('./src/assets/coverphoto.jpg')] bg-cover bg-center">
 				<div className="md:hidden size-40 overflow-hidden shrink-0 rounded-full shadow-lg">
 					<img
 						src={me}
@@ -65,21 +64,25 @@ export default function Home() {
 					<div className="flex gap-1 flex-wrap">
 						<div className="flex items-center justify-center gap-1 px-2 py-1 rounded-md hover:shadow-lg border dark:border-0 dark:hover:bg-zinc-800 border-zinc-100 cursor-pointer">
 							<IoLogoGithub className="text-2xl" />
-							<div className="text-xs font-light">Github</div>
+							<div className="md:text-xs md:block font-light hidden">
+								Github
+							</div>
 						</div>
 						<div className="flex items-center justify-center gap-1 px-2 py-1 rounded-md hover:shadow-lg border dark:border-0 dark:hover:bg-zinc-800 border-zinc-100 cursor-pointer">
 							<IoLogoLinkedin className="text-2xl" />
-							<div className="text-xs font-light">LinkedIn</div>
+							<div className="md:text-xs md:block font-light hidden">
+								LinkedIn
+							</div>
 						</div>
 						<div className="flex items-center justify-center gap-1 px-2 py-1 rounded-md hover:shadow-lg border dark:border-0 dark:hover:bg-zinc-800 border-zinc-100 cursor-pointer">
 							<IoCall className="text-2xl" />
-							<div className="text-xs font-light text-nowrap">
+							<div className="md:text-xs md:block font-light hidden text-nowrap">
 								+63 945-428-6156
 							</div>
 						</div>
 						<div className="flex items-center justify-center gap-1 px-2 py-1 rounded-md hover:shadow-lg border dark:border-0 dark:hover:bg-zinc-800 border-zinc-100 cursor-pointer">
 							<IoMail className="text-2xl" />
-							<div className="text-xs font-light">
+							<div className="md:text-xs md:block font-light hidden">
 								limdeux27@gmail.com
 							</div>
 						</div>
