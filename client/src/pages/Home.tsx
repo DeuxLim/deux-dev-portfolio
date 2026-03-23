@@ -57,31 +57,31 @@ export default function Home() {
 						</div>
 						<div className="flex items-center justify-start text-xs gap-1 font-light">
 							<IoBriefcase />3 years work experience | BS-IT
-							Graduate
+							Graduate | Cum Laude
 						</div>
 					</div>
 					{/* Bottom */}
 					<div className="flex gap-1 flex-wrap">
 						<div className="flex items-center justify-center gap-1 px-2 py-1 rounded-md hover:shadow-lg border dark:border-0 dark:hover:bg-zinc-800 border-zinc-100 cursor-pointer">
-							<IoLogoGithub className="text-2xl" />
+							<IoLogoGithub className="text-xl" />
 							<div className="md:text-xs md:block font-light hidden">
 								Github
 							</div>
 						</div>
 						<div className="flex items-center justify-center gap-1 px-2 py-1 rounded-md hover:shadow-lg border dark:border-0 dark:hover:bg-zinc-800 border-zinc-100 cursor-pointer">
-							<IoLogoLinkedin className="text-2xl" />
+							<IoLogoLinkedin className="text-xl" />
 							<div className="md:text-xs md:block font-light hidden">
 								LinkedIn
 							</div>
 						</div>
 						<div className="flex items-center justify-center gap-1 px-2 py-1 rounded-md hover:shadow-lg border dark:border-0 dark:hover:bg-zinc-800 border-zinc-100 cursor-pointer">
-							<IoCall className="text-2xl" />
+							<IoCall className="text-xl" />
 							<div className="md:text-xs md:block font-light hidden text-nowrap">
 								+63 945-428-6156
 							</div>
 						</div>
 						<div className="flex items-center justify-center gap-1 px-2 py-1 rounded-md hover:shadow-lg border dark:border-0 dark:hover:bg-zinc-800 border-zinc-100 cursor-pointer">
-							<IoMail className="text-2xl" />
+							<IoMail className="text-xl" />
 							<div className="md:text-xs md:block font-light hidden">
 								limdeux27@gmail.com
 							</div>
