@@ -6,7 +6,7 @@ export default function ChatHead() {
 	const { isDarkMode } = useTheme();
 
 	return (
-		<div className="rounded-full hover:shadow-lg group absolute bottom-10 right-[2%] flex items-center justify-center gap-2">
+		<div className="rounded-full hover:shadow-lg group fixed bottom-10 right-[2%] flex items-center justify-center gap-2">
 			<div className="relative size-20">
 				<div className="size-20 rounded-full overflow-hidden">
 					<img src={me} alt="" />
