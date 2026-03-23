@@ -11,7 +11,7 @@ import {
 
 export default function Home() {
 	return (
-		<main className="flex flex-col gap-4 px-8">
+		<main className="flex flex-col gap-4">
 			{/* Mobile Profile And Cover */}
 			<div className="w-full md:hidden flex items-center justify-center h-50 rounded-4xl bg-[url('./src/assets/coverphoto.jpg')] bg-cover bg-center">
 				<div className="md:hidden size-40 overflow-hidden shrink-0 rounded-full shadow-lg">
@@ -27,7 +27,7 @@ export default function Home() {
 			<section className="flex gap-4 h-40">
 				{/* Profile picture */}
 				<div className="hidden h-full md:flex items-center justify-center">
-					<div className="md:flex md:h-40 overflow-hidden shrink-0 rounded-lg">
+					<div className="md:flex md:h-40 md:w-40 overflow-hidden rounded-lg">
 						<img
 							src={me}
 							alt=""
