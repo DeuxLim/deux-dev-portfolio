@@ -1,5 +1,6 @@
 import me from "@/assets/me.jpeg";
 import GitHeapMap from "@/components/GitHeatMap";
+import Footer from "@/components/Home/Footer";
 import ThemeToggleButton from "@/components/ThemeToggleButton";
 import Timeline from "@/components/Timeline";
 import { BsClaude } from "react-icons/bs";
@@ -301,9 +302,7 @@ export default function Home() {
 
 				{/* Footer */}
 				<div className="md:col-span-12 col-span-4 border-t border-gray-200 dark:border-zinc-900 p-4 flex items-center justify-center mt-4 h-24">
-					<div className="text-sm font-light">
-						© 2026 Deux Lim. All rights reserved.
-					</div>
+					<Footer />
 				</div>
 			</div>
 		</main>
