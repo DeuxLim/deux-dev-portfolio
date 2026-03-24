@@ -1,6 +1,7 @@
 import me from "@/assets/me.jpeg";
 import GitHeapMap from "@/components/GitHeatMap";
 import ThemeToggleButton from "@/components/ThemeToggleButton";
+import Timeline from "@/components/Timeline";
 import { BsClaude } from "react-icons/bs";
 import { FaGitlab } from "react-icons/fa6";
 import {
@@ -117,9 +118,9 @@ export default function Home() {
 			{/* Content */}
 			<div className="grid grid-cols-4 md:grid-cols-12 gap-4 items-start">
 				{/* About */}
-				<div className="md:col-span-8 col-span-4 border rounded-lg border-gray-100 dark:border-zinc-900 hover:shadow-md p-4 space-y-2">
+				<div className="md:col-span-8 col-span-4 border rounded-lg border-gray-100 dark:border-zinc-900 hover:shadow-md p-4 space-y-2 h-full">
 					<div className="text-lg font-bold">About</div>
-					<div className="text-sm font-light space-y-3">
+					<div className="text-md font-light space-y-3">
 						<p>
 							I'm a full-stack web developer with 3 years of
 							experience building, maintaining, and improving
@@ -152,12 +153,20 @@ export default function Home() {
 						</p>
 					</div>
 				</div>
+
 				{/* Experience */}
-				<div className="md:col-span-4 col-span-4 border rounded-lg border-gray-100 dark:border-zinc-900 hover:shadow-md p-4 space-y-2 row-span-2 h-full">
+				<div className="md:col-span-4 col-span-4 border rounded-lg border-gray-100 dark:border-zinc-900 hover:shadow-md p-4 space-y-2 row-span-1 h-full">
 					<div className="text-lg font-bold">Experience</div>
+					<Timeline />
 				</div>
-				{/* Tech Stack */}
+
+				{/* Projects */}
 				<div className="md:col-span-8 col-span-4 border rounded-lg border-gray-100 dark:border-zinc-900 hover:shadow-md p-4 space-y-2">
+					<div className="text-lg font-bold">Projects</div>
+				</div>
+
+				{/* Tech Stack */}
+				<div className="md:col-span-4 col-span-4 border rounded-lg border-gray-100 dark:border-zinc-900 hover:shadow-md p-4 space-y-2">
 					<div className="text-lg font-bold">Tech Stack</div>
 
 					{/* Frontend */}
@@ -269,10 +278,7 @@ export default function Home() {
 						</div>
 					</div>
 				</div>
-				{/* Projects */}
-				<div className="md:col-span-12 col-span-4 border rounded-lg border-gray-100 dark:border-zinc-900 hover:shadow-md p-4 space-y-2">
-					<div className="text-lg font-bold">Projects</div>
-				</div>
+
 				{/* Coding Heat Map */}
 				<div className="md:col-span-8 col-span-4 border rounded-lg border-gray-100 dark:border-zinc-900 hover:shadow-md p-4 space-y-2 ">
 					<div className="text-lg font-bold">
@@ -282,14 +288,17 @@ export default function Home() {
 						<GitHeapMap />
 					</div>
 				</div>
+
 				{/* Certifications */}
 				<div className="md:col-span-4 col-span-4 border rounded-lg border-gray-100 dark:border-zinc-900 hover:shadow-md p-4 space-y-2 row-span-1 h-full">
 					<div className="text-lg font-bold">Certifications</div>
 				</div>
+
 				{/* Gallery */}
 				<div className="md:col-span-12 col-span-4 border rounded-lg border-gray-100 dark:border-zinc-900 hover:shadow-md p-4 space-y-2">
 					<div className="text-lg font-bold">Gallery</div>
 				</div>
+
 				{/* Footer */}
 				<div className="md:col-span-12 col-span-4 border-t border-gray-200 dark:border-zinc-900 p-4 flex items-center justify-center mt-4 h-24">
 					<div className="text-sm font-light">
