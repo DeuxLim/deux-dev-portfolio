@@ -3,7 +3,6 @@ import GitHeapMap from "@/components/GitHeatMap";
 import Footer from "@/components/Home/Footer";
 import Gallery from "@/components/Home/Gallery";
 import ThemeToggleButton from "@/components/ThemeToggleButton";
-import Timeline from "@/components/Timeline";
 
 import {
 	IoBriefcase,
@@ -134,10 +133,9 @@ export default function Home() {
 					</div>
 				</div>
 
-				{/* Experience */}
-				<div className="md:col-span-4 col-span-4 border rounded-lg border-gray-100 dark:border-zinc-900 hover:shadow-md p-4 space-y-2 row-span-1 h-full">
-					<div className="text-lg font-bold">Experience</div>
-					<Timeline />
+				{/* Experience Timeline */}
+				<div className="col-span-4 border rounded-lg border-gray-100 dark:border-zinc-900 hover:shadow-md p-4 md:col-span-4 row-span-1">
+					<ExperienceTimeline />
 				</div>
 
 				{/* Projects */}
