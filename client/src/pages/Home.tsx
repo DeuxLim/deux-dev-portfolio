@@ -270,16 +270,8 @@ export default function Home() {
 					</div>
 				</div>
 				{/* Projects */}
-				<div className="md:col-span-6 col-span-4 border rounded-lg border-gray-100 dark:border-zinc-900 hover:shadow-md p-4 space-y-2">
+				<div className="md:col-span-12 col-span-4 border rounded-lg border-gray-100 dark:border-zinc-900 hover:shadow-md p-4 space-y-2">
 					<div className="text-lg font-bold">Projects</div>
-				</div>
-				{/* Gallery */}
-				<div className="md:col-span-6 col-span-4 border rounded-lg border-gray-100 dark:border-zinc-900 hover:shadow-md p-4 space-y-2">
-					<div className="text-lg font-bold">Gallery</div>
-				</div>
-				{/* Another Section */}
-				<div className="md:col-span-6 col-span-4 border rounded-lg border-gray-100 dark:border-zinc-900 hover:shadow-md p-4 space-y-2">
-					<div className="text-lg font-bold">Slot</div>
 				</div>
 				{/* Coding Heat Map */}
 				<div className="md:col-span-8 col-span-4 border rounded-lg border-gray-100 dark:border-zinc-900 hover:shadow-md p-4 space-y-2 ">
@@ -288,6 +280,20 @@ export default function Home() {
 					</div>
 					<div className="grid grid-flow-col grid-rows-7 gap-px h-26">
 						<GitHeapMap />
+					</div>
+				</div>
+				{/* Certifications */}
+				<div className="md:col-span-4 col-span-4 border rounded-lg border-gray-100 dark:border-zinc-900 hover:shadow-md p-4 space-y-2 row-span-1 h-full">
+					<div className="text-lg font-bold">Certifications</div>
+				</div>
+				{/* Gallery */}
+				<div className="md:col-span-12 col-span-4 border rounded-lg border-gray-100 dark:border-zinc-900 hover:shadow-md p-4 space-y-2">
+					<div className="text-lg font-bold">Gallery</div>
+				</div>
+				{/* Footer */}
+				<div className="md:col-span-12 col-span-4 border-t border-gray-200 dark:border-zinc-900 p-4 flex items-center justify-center mt-4 h-24">
+					<div className="text-sm font-light">
+						© 2026 Deux Lim. All rights reserved.
 					</div>
 				</div>
 			</div>
