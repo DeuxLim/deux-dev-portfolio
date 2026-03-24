@@ -57,7 +57,7 @@ export default function Experience() {
 						<div className="h-px bg-zinc-200 dark:bg-zinc-800" />
 
 						{/* Highlights */}
-						<ul className="flex flex-col gap-1.5 text-sm text-zinc-600 dark:text-zinc-400">
+						<ul className="flex flex-col gap-1.5 text-sm text-zinc-600 dark:text-white">
 							{exp.highlights.map((item, i) => (
 								<li key={i} className="flex gap-2">
 									<span className="mt-1.5 w-1 h-1 bg-zinc-400 rounded-full shrink-0" />
