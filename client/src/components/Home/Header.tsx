@@ -1,5 +1,6 @@
 import me from "@/assets/me.jpeg";
 import ThemeToggleButton from "@/components/ThemeToggleButton";
+import { motion } from "motion/react";
 
 import {
 	IoBriefcase,
@@ -12,7 +13,11 @@ import {
 
 export default function Header() {
 	return (
-		<>
+		<motion.div
+			initial={{ opacity: 0, y: -50 }}
+			animate={{ opacity: 1, y: 0 }}
+			transition={{ duration: 0.7, ease: "easeOut" }}
+		>
 			{/* Mobile Profile And Cover */}
 			<div className="w-full md:hidden flex items-center justify-center h-50 rounded-4xl bg-[url('./src/assets/coverphoto.jpg')] bg-cover bg-center">
 				<div className="md:hidden size-40 overflow-hidden shrink-0 rounded-full shadow-lg">
@@ -90,6 +95,6 @@ export default function Header() {
 					</div>
 				</div>
 			</section>
-		</>
+		</motion.div>
 	);
 }
