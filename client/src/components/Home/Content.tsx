@@ -7,54 +7,100 @@ import Heatmap from "@/components/Home/Heatmap";
 import Projects from "@/components/Home/Projects";
 import TechStack from "@/components/Home/TechStack";
 import Experience from "./Experience";
+import { motion } from "motion/react";
 
 export default function Content() {
 	return (
 		<div className="grid grid-cols-4 md:grid-cols-12 gap-4">
 			{/* About */}
-			<div className="col-span-4 border rounded-lg border-gray-100 dark:border-zinc-900 hover:shadow-md p-4 md:col-span-8 ">
+			<motion.div
+				initial={{ opacity: 0, x: -50 }}
+				animate={{ opacity: 1, x: 0 }}
+				transition={{ duration: 0.7, ease: "easeOut" }}
+				className="col-span-4 border rounded-lg border-gray-100 dark:border-zinc-900 hover:shadow-md p-4 md:col-span-8 "
+			>
 				<About />
-			</div>
+			</motion.div>
 
 			{/* Experience Timeline */}
-			<div className="col-span-4 border rounded-lg border-gray-100 dark:border-zinc-900 hover:shadow-md p-4 md:col-span-4 row-span-1">
+			<motion.div
+				initial={{ opacity: 0, x: 50 }}
+				animate={{ opacity: 1, x: 0 }}
+				transition={{ duration: 0.7, ease: "easeOut" }}
+				className="col-span-4 border rounded-lg border-gray-100 dark:border-zinc-900 hover:shadow-md p-4 md:col-span-4 row-span-1"
+			>
 				<Timeline />
-			</div>
+			</motion.div>
 
 			{/* Experience */}
-			<div className="col-span-4 border rounded-lg border-gray-100 dark:border-zinc-900 hover:shadow-md p-4 md:col-span-8">
+			<motion.div
+				initial={{ opacity: 0, x: -50 }}
+				animate={{ opacity: 1, x: 0 }}
+				transition={{ duration: 0.7, ease: "easeOut" }}
+				className="col-span-4 border rounded-lg border-gray-100 dark:border-zinc-900 hover:shadow-md p-4 md:col-span-8"
+			>
 				<Experience />
-			</div>
+			</motion.div>
 
 			{/* Tech Stack */}
-			<div className="col-span-4 border rounded-lg border-gray-100 dark:border-zinc-900 hover:shadow-md p-4 md:col-span-4 row-span-2">
+			<motion.div
+				initial={{ opacity: 0, x: 50 }}
+				animate={{ opacity: 1, x: 0 }}
+				transition={{ duration: 0.7, ease: "easeOut" }}
+				className="col-span-4 border rounded-lg border-gray-100 dark:border-zinc-900 hover:shadow-md p-4 md:col-span-4 row-span-2"
+			>
 				<TechStack />
-			</div>
+			</motion.div>
 
 			{/* Projects */}
-			<div className="col-span-4 border rounded-lg border-gray-100 dark:border-zinc-900 hover:shadow-md p-4 md:col-span-8">
+			<motion.div
+				initial={{ opacity: 0, x: -50 }}
+				animate={{ opacity: 1, x: 0 }}
+				transition={{ duration: 0.7, ease: "easeOut" }}
+				className="col-span-4 border rounded-lg border-gray-100 dark:border-zinc-900 hover:shadow-md p-4 md:col-span-8"
+			>
 				<Projects />
-			</div>
+			</motion.div>
 
 			{/* Coding Heat Map */}
-			<div className="col-span-4 border rounded-lg border-gray-100 dark:border-zinc-900 hover:shadow-md p-4 md:col-span-8">
+			<motion.div
+				initial={{ opacity: 0, x: -50 }}
+				animate={{ opacity: 1, x: 0 }}
+				transition={{ duration: 0.7, ease: "easeOut" }}
+				className="col-span-4 border rounded-lg border-gray-100 dark:border-zinc-900 hover:shadow-md p-4 md:col-span-8"
+			>
 				<Heatmap />
-			</div>
+			</motion.div>
 
 			{/* Certifications */}
-			<div className="col-span-4 border rounded-lg border-gray-100 dark:border-zinc-900 hover:shadow-md p-4 md:col-span-4 row-span-1">
+			<motion.div
+				initial={{ opacity: 0, x: 50 }}
+				animate={{ opacity: 1, x: 0 }}
+				transition={{ duration: 0.7, ease: "easeOut" }}
+				className="col-span-4 border rounded-lg border-gray-100 dark:border-zinc-900 hover:shadow-md p-4 md:col-span-4 row-span-1"
+			>
 				<Certifications />
-			</div>
+			</motion.div>
 
 			{/* Gallery */}
-			<div className="col-span-4 border rounded-lg border-gray-100 dark:border-zinc-900 hover:shadow-md p-4 md:col-span-12">
+			<motion.div
+				initial={{ opacity: 0, x: -50 }}
+				animate={{ opacity: 1, x: 0 }}
+				transition={{ duration: 0.7, ease: "easeOut" }}
+				className="col-span-4 border rounded-lg border-gray-100 dark:border-zinc-900 hover:shadow-md p-4 md:col-span-12"
+			>
 				<Gallery />
-			</div>
+			</motion.div>
 
 			{/* Footer */}
-			<div className="md:col-span-12 col-span-4 border-t border-gray-200 dark:border-zinc-900 p-4 flex items-center justify-center mt-4 h-24">
+			<motion.div
+				initial={{ opacity: 0, y: 50 }}
+				animate={{ opacity: 1, y: 0 }}
+				transition={{ duration: 0.7, ease: "easeOut" }}
+				className="md:col-span-12 col-span-4 border-t border-gray-200 dark:border-zinc-900 p-4 flex items-center justify-center mt-4 h-24"
+			>
 				<Footer />
-			</div>
+			</motion.div>
 		</div>
 	);
 }
