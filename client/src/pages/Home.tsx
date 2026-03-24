@@ -1,6 +1,7 @@
 import me from "@/assets/me.jpeg";
 import GitHeapMap from "@/components/GitHeatMap";
 import Footer from "@/components/Home/Footer";
+import Gallery from "@/components/Home/Gallery";
 import ThemeToggleButton from "@/components/ThemeToggleButton";
 import Timeline from "@/components/Timeline";
 import { BsClaude } from "react-icons/bs";
@@ -296,8 +297,8 @@ export default function Home() {
 				</div>
 
 				{/* Gallery */}
-				<div className="md:col-span-12 col-span-4 border rounded-lg border-gray-100 dark:border-zinc-900 hover:shadow-md p-4 space-y-2">
-					<div className="text-lg font-bold">Gallery</div>
+				<div className="col-span-4 border rounded-lg border-gray-100 dark:border-zinc-900 hover:shadow-md p-4 md:col-span-12">
+					<Gallery />
 				</div>
 
 				{/* Footer */}
