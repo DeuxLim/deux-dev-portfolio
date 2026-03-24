@@ -292,8 +292,8 @@ export default function Home() {
 				</div>
 
 				{/* Certifications */}
-				<div className="md:col-span-4 col-span-4 border rounded-lg border-gray-100 dark:border-zinc-900 hover:shadow-md p-4 space-y-2 row-span-1 h-full">
-					<div className="text-lg font-bold">Certifications</div>
+				<div className="col-span-4 border rounded-lg border-gray-100 dark:border-zinc-900 hover:shadow-md p-4 md:col-span-4 row-span-1">
+					<Certifications />
 				</div>
 
 				{/* Gallery */}
