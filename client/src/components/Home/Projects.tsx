@@ -2,7 +2,7 @@ const projects = [
 	{
 		name: "Developer Portfolio",
 		description: "Resume-style developer portfolio",
-		url: "", // add link
+		url: "deux-dev-portfolio.vercel.app",
 	},
 	{
 		name: "Messenger Clone",
