@@ -9,7 +9,7 @@ export default function PortfolioLayout() {
 			className={`${isDarkMode ? "bg-black text-white" : "bg-white text-black"} bg-cover bg-center`}
 		>
 			{/* Main Template */}
-			<div className="max-w-5xl mx-auto px-4 py-8">
+			<div className="max-w-5xl mx-auto px-4 pt-8">
 				<Outlet />
 			</div>
 
