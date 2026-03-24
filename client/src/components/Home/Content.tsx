@@ -1,11 +1,12 @@
 import About from "@/components/Home/About";
 import Certifications from "@/components/Home/Certifications";
-import ExperienceTimeline from "@/components/Home/ExperienceTimeline";
+import Timeline from "@/components/Home/Timeline";
 import Footer from "@/components/Home/Footer";
 import Gallery from "@/components/Home/Gallery";
 import Heatmap from "@/components/Home/Heatmap";
 import Projects from "@/components/Home/Projects";
 import TechStack from "@/components/Home/TechStack";
+import Experience from "./Experience";
 
 export default function Content() {
 	return (
@@ -17,14 +18,12 @@ export default function Content() {
 
 			{/* Experience Timeline */}
 			<div className="col-span-4 border rounded-lg border-gray-100 dark:border-zinc-900 hover:shadow-md p-4 md:col-span-4 row-span-1">
-				<ExperienceTimeline />
+				<Timeline />
 			</div>
 
-			{/* Experience In-depth */}
+			{/* Experience */}
 			<div className="col-span-4 border rounded-lg border-gray-100 dark:border-zinc-900 hover:shadow-md p-4 md:col-span-8">
-				<div>
-					<div className="text-lg font-bold">Experience In-Depth</div>
-				</div>
+				<Experience />
 			</div>
 
 			{/* Tech Stack */}

@@ -2,7 +2,7 @@ export default function About() {
 	return (
 		<div className="space-y-4">
 			<div className="text-lg font-bold">About</div>
-			<div className="text-md font-light space-y-3">
+			<div className="text-sm font-light space-y-3">
 				<p>
 					I'm a full-stack web developer with 3 years of experience
 					building, maintaining, and improving production systems
