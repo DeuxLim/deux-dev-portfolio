@@ -1,7 +1,12 @@
 import me from "@/assets/me.jpeg";
-import GitHeapMap from "@/components/GitHeatMap";
+import About from "@/components/Home/About";
+import Certifications from "@/components/Home/Certifications";
+import ExperienceTimeline from "@/components/Home/ExperienceTimeline";
 import Footer from "@/components/Home/Footer";
 import Gallery from "@/components/Home/Gallery";
+import Heatmap from "@/components/Home/Heatmap";
+import Projects from "@/components/Home/Projects";
+import TechStack from "@/components/Home/TechStack";
 import ThemeToggleButton from "@/components/ThemeToggleButton";
 
 import {
