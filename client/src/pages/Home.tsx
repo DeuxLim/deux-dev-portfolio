@@ -281,6 +281,11 @@ export default function Home() {
 					</div>
 				</div>
 
+				{/* Projects */}
+				<div className="col-span-4 border rounded-lg border-gray-100 dark:border-zinc-900 hover:shadow-md p-4 md:col-span-8">
+					<Projects />
+				</div>
+
 				{/* Coding Heat Map */}
 				<div className="col-span-4 border rounded-lg border-gray-100 dark:border-zinc-900 hover:shadow-md p-4 md:col-span-8">
 					<Heatmap />
