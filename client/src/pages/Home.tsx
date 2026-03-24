@@ -282,13 +282,8 @@ export default function Home() {
 				</div>
 
 				{/* Coding Heat Map */}
-				<div className="md:col-span-8 col-span-4 border rounded-lg border-gray-100 dark:border-zinc-900 hover:shadow-md p-4 space-y-2 ">
-					<div className="text-lg font-bold">
-						Daily Coding Heat Map
-					</div>
-					<div className="grid grid-flow-col grid-rows-7 gap-px h-26">
-						<GitHeapMap />
-					</div>
+				<div className="col-span-4 border rounded-lg border-gray-100 dark:border-zinc-900 hover:shadow-md p-4 md:col-span-8">
+					<Heatmap />
 				</div>
 
 				{/* Certifications */}
