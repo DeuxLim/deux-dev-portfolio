@@ -2,7 +2,7 @@ import useChat from "@/context/Chat/useChat";
 import { FaMinus, FaThumbsUp } from "react-icons/fa6";
 
 export default function ChatBox() {
-	const { setIsChatOpen } = useChat();
+	const { setIsChatOpen } = useChat(); 
 	return (
 		<div className="w-sm h-150 bg-white dark:bg-black text-black dark:text-white fixed bottom-0 right-[3%] rounded-tr-2xl rounded-tl-2xl shadow-lg overflow-hidden border border-zinc-200">
 			<div className="flex flex-col h-full">
