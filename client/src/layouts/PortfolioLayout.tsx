@@ -1,4 +1,4 @@
-import ChatHead from "@/components/Chatbot/ChatHead";
+import FloatingChat from "@/components/Chatbot/FloatingChat";
 import useTheme from "@/context/Theme/useTheme";
 import { Outlet } from "react-router";
 
@@ -13,8 +13,8 @@ export default function PortfolioLayout() {
 				<Outlet />
 			</div>
 
-			{/* Chat me Button */}
-			<ChatHead />
+			{/* Chat Feature */}
+			<FloatingChat />
 		</div>
 	);
 }
