@@ -1,70 +1,108 @@
 const experiences = [
 	{
 		role: "Full-Stack Developer",
+		fnName: "FullStackDeveloper",
 		company: "Orro Group",
-		period: "Mar 2023 - Present",
+		period: "Mar 2023 — Present",
 		highlights: [
-			"Build and maintain production CRM systems across frontend and backend, focusing on performance and reliability",
-
-			"Integrate REST APIs with external platforms and internal services, enabling real-time data sync and workflow automation",
-
-			"Develop AI-assisted features using Azure OpenAI, including a context-aware chatbot that improves internal support efficiency",
-
+			"Build and maintain production CRM systems, focusing on performance and reliability",
+			"Integrate REST APIs with external platforms enabling real-time data sync and workflow automation",
+			"Develop AI-assisted features using Azure OpenAI, including a context-aware internal chatbot",
 			"Design scalable backend services with Laravel and SQL using MVC and OOP best practices",
-
-			"Create internal tools for network operations (monitoring and automation), reducing manual work and improving system visibility",
+			"Create internal tools for network monitoring and automation, reducing manual ops work",
 		],
 	},
-
 	{
 		role: "Developer Intern",
+		fnName: "DeveloperIntern",
 		company: "Orro Group",
-		period: "Mar 2023 - Jun 2023",
+		period: "Mar 2023 — Jun 2023",
 		highlights: [
 			"Supported development of a legacy CRM system across frontend and backend",
-
 			"Fixed bugs and assisted in feature enhancements, improving system stability",
-
 			"Worked closely with senior developers, gaining hands-on experience in production workflows",
 		],
 	},
 ];
 
 export default function Experience() {
+	// Build a flat list of lines with their content and line numbers
+	const lines: { content: React.ReactNode }[] = [];
+
+	experiences.forEach((exp, i) => {
+		// comment line
+		lines.push({
+			content: (
+				<span className="text-zinc-400 dark:text-zinc-500 text-[12px]">
+					{`// ${String(i + 1).padStart(2, "0")} — ${exp.company} · ${exp.period}`}
+				</span>
+			),
+		});
+		// function declaration
+		lines.push({
+			content: (
+				<span className="text-[13px]">
+					<span className="text-zinc-400 dark:text-zinc-500">
+						function{" "}
+					</span>
+					<span className="font-semibold text-zinc-900 dark:text-white">
+						{exp.fnName}
+					</span>
+					<span className="text-zinc-400 dark:text-zinc-500">
+						() {"{"}
+					</span>
+				</span>
+			),
+		});
+		// highlights
+		exp.highlights.forEach((item) => {
+			lines.push({
+				content: (
+					<span className="flex gap-2 pl-4 text-[12.5px] leading-snug">
+						<span className="text-zinc-300 dark:text-zinc-600 shrink-0">
+							›
+						</span>
+						<span className="text-zinc-500 dark:text-zinc-400">
+							{item}
+						</span>
+					</span>
+				),
+			});
+		});
+		// closing brace
+		lines.push({
+			content: (
+				<span className="text-zinc-400 dark:text-zinc-500 text-[13px]">
+					{"}"}
+				</span>
+			),
+		});
+		// spacer (empty line between entries)
+		if (i < experiences.length - 1) {
+			lines.push({ content: null });
+		}
+	});
+
 	return (
-		<div className="space-y-4">
-			<div className="text-lg font-bold">Experience</div>
-			<div className="flex flex-col gap-6">
-				{experiences.map((exp, index) => (
-					<div key={index} className="flex flex-col gap-2">
-						{/* Header */}
-						<div className="flex items-start justify-between">
-							<div>
-								<div className="text-md font-semibold text-black dark:text-white">
-									{exp.role}
-								</div>
-								<div className="text-sm text-zinc-500">
-									{exp.company}
-								</div>
-							</div>
+		<div className="space-y-3">
+			{/* Filename bar */}
+			<div className="flex items-center gap-2 border-b border-zinc-200 dark:border-zinc-800 pb-2">
+				<span className="text-lg font-bold text-black dark:text-zinc-500">
+					Experience
+				</span>
+			</div>
 
-							<div className="text-xs text-zinc-400 whitespace-nowrap">
-								{exp.period}
-							</div>
-						</div>
-
-						{/* Divider */}
-						<div className="h-px bg-zinc-200 dark:bg-zinc-800" />
-
-						{/* Highlights */}
-						<ul className="flex flex-col gap-1.5 text-sm text-zinc-600 dark:text-white">
-							{exp.highlights.map((item, i) => (
-								<li key={i} className="flex gap-2">
-									<span className="mt-1.5 w-1 h-1 bg-zinc-400 rounded-full shrink-0" />
-									<span>{item}</span>
-								</li>
-							))}
-						</ul>
+			{/* Lines */}
+			<div className="flex flex-col font-mono">
+				{lines.map((line, i) => (
+					<div
+						key={i}
+						className="grid grid-cols-[28px_1fr] gap-x-3 min-h-[20px] group"
+					>
+						<span className="text-[10px] text-right text-zinc-300 dark:text-zinc-700 group-hover:text-zinc-400 dark:group-hover:text-zinc-500 select-none pt-px">
+							{line.content !== null ? i + 1 : ""}
+						</span>
+						<span className="leading-relaxed">{line.content}</span>
 					</div>
 				))}
 			</div>
