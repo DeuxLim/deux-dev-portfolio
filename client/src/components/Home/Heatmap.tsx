@@ -1,6 +1,9 @@
 import { GitHubCalendar } from "react-github-calendar";
+import useTheme from "@/context/Theme/useTheme";
 
 export default function Heatmap() {
+	const { isDarkMode } = useTheme();
+
 	return (
 		<div className="space-y-4 w-full">
 			<div className="text-lg font-bold">Daily Coding Heat Map</div>
@@ -18,6 +21,18 @@ export default function Heatmap() {
 							return date >= sixMonthsAgo;
 						});
 					}}
+					{...(isDarkMode && {
+						theme: {
+							dark: [
+								"#161b22",
+								"#0e4429",
+								"#006d32",
+								"#26a641",
+								"#39d353",
+							],
+						},
+						colorScheme: "dark",
+					})}
 				/>
 			</div>
 		</div>
