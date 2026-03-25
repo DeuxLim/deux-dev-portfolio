@@ -10,6 +10,7 @@ import {
 	IoLogoLinkedin,
 	IoMail,
 } from "react-icons/io5";
+import cover from "@/assets/coverphoto.jpg";
 
 export default function Header() {
 	return (
@@ -19,7 +20,10 @@ export default function Header() {
 			transition={{ duration: 0.7, ease: "easeOut" }}
 		>
 			{/* Mobile Profile And Cover */}
-			<div className="w-full md:hidden flex items-center justify-center h-50 rounded-4xl bg-[url('./src/assets/coverphoto.jpg')] bg-cover bg-center">
+			<div
+				className="w-full md:hidden flex items-center justify-center h-50 rounded-4xl bg-cover bg-center"
+				style={{ backgroundImage: `url(${cover})` }}
+			>
 				<div className="md:hidden size-40 overflow-hidden shrink-0 rounded-full shadow-lg">
 					<img
 						src={me}
