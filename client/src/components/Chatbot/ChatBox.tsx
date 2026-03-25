@@ -4,7 +4,7 @@ import { FaMinus, FaThumbsUp } from "react-icons/fa6";
 export default function ChatBox() {
 	const { setIsChatOpen } = useChat();
 	return (
-		<div className="w-xs h-100 bg-white dark:bg-black text-black dark:text-white fixed bottom-0 right-[3%] rounded-tr-2xl rounded-tl-2xl shadow-lg overflow-hidden border border-zinc-200">
+		<div className="w-sm h-150 bg-white dark:bg-black text-black dark:text-white fixed bottom-0 right-[3%] rounded-tr-2xl rounded-tl-2xl shadow-lg overflow-hidden border border-zinc-200">
 			<div className="flex flex-col h-full">
 				{/* Header */}
 				<div className="w-full h-12 rounded-tr-2xl rounded-tl-2xl shadow-[0_2px_0_0_rgba(0,0,0,0.1)]">
@@ -40,7 +40,43 @@ export default function ChatBox() {
 								/>
 							</div>
 							<div className="bg-gray-200 px-4 py-1 rounded-md max-w-[70%] text-sm">
-								Test chat from Gemini
+								<div className="p-4 text-sm leading-relaxed">
+									<p className="font-semibold">
+										Hey 👋 I’m Deux
+									</p>
+
+									<p className="mt-2">
+										I build web apps using{" "}
+										<span className="font-medium">
+											Laravel
+										</span>{" "}
+										and{" "}
+										<span className="font-medium">
+											React
+										</span>
+										.
+									</p>
+
+									<p className="mt-2">
+										Feel free to ask me anything about my
+										work, how I build things, or what I’ve
+										been working on lately.
+									</p>
+
+									<p className="mt-3 font-medium">
+										Try asking:
+									</p>
+									<ul className="mt-1 list-disc list-inside space-y-1">
+										<li>What projects have you built?</li>
+										<li>What’s your tech stack?</li>
+										<li>
+											How do you approach backend
+											development?
+										</li>
+									</ul>
+
+									<p className="mt-3">Or just say hi 🙂</p>
+								</div>
 							</div>
 						</div>
 					</div>
