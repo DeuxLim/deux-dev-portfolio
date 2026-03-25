@@ -27,7 +27,34 @@ export default function ChatBox() {
 				</div>
 
 				{/* Content */}
-				<div className="flex-1 p-4"></div>
+				<div className="flex-1 p-4 overflow-auto scroll flex gap-4 flex-col">
+					{/* Inbound Group */}
+					<div className="flex gap-4 flex-col">
+						{/* Sample Chat 1 */}
+						<div className="flex items-end gap-2">
+							<div className="w-6 shrink-0 h-full flex items-end">
+								<img
+									src=""
+									className="size-6 rounded-full bg-black"
+									alt=""
+								/>
+							</div>
+							<div className="bg-gray-200 px-4 py-1 rounded-md max-w-[70%] text-sm">
+								Test chat from Gemini
+							</div>
+						</div>
+					</div>
+
+					{/* Outbound Group */}
+					<div className="flex gap-4 flex-col">
+						{/* Sample Chat 1 */}
+						<div className="flex justify-end gap-2">
+							<div className="bg-blue-700 text-white px-4 py-1 rounded-md max-w-[70%] text-sm">
+								Test chat
+							</div>
+						</div>
+					</div>
+				</div>
 
 				{/* Input */}
 				<div className="h-16 flex items-center justify-around gap-4 px-4">
