@@ -1,12 +1,7 @@
 const experiences = [
 	{
 		year: "2026",
-		position: "Mid Full Stack Developer",
-		company: "Orro Group",
-	},
-	{
-		year: "2023",
-		position: "Junior Full Stack Developer",
+		position: "Full Stack Developer",
 		company: "Orro Group",
 	},
 	{

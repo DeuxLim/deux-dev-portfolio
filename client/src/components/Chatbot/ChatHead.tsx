@@ -10,7 +10,7 @@ export default function ChatHead() {
 	return (
 		<div
 			onClick={() => setIsChatOpen(true)}
-			className="rounded-full hover:shadow-lg group fixed bottom-10 right-[4%] flex items-center justify-center gap-2 cursor-pointer"
+			className="rounded-full hover:shadow-lg group fixed bottom-10 right-[3%] flex items-center justify-center gap-2 cursor-pointer"
 		>
 			<div className="relative size-16">
 				{/* Avatar */}
