@@ -1,12 +1,17 @@
 import me from "@/assets/me.jpeg";
 import { IoCloseSharp } from "react-icons/io5";
 import useTheme from "@/context/Theme/useTheme";
+import useChat from "@/context/Chat/useChat";
 
 export default function ChatHead() {
 	const { isDarkMode } = useTheme();
+	const { setIsChatOpen } = useChat();
 
 	return (
-		<div className="rounded-full hover:shadow-lg group fixed bottom-10 right-[4%] flex items-center justify-center gap-2">
+		<div
+			onClick={() => setIsChatOpen(true)}
+			className="rounded-full hover:shadow-lg group fixed bottom-10 right-[4%] flex items-center justify-center gap-2 cursor-pointer"
+		>
 			<div className="relative size-16">
 				{/* Avatar */}
 				<div className="size-16 rounded-full overflow-hidden">

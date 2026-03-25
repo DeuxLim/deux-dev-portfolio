@@ -1,7 +1,8 @@
+import useChat from "@/context/Chat/useChat";
 import { FaMinus, FaThumbsUp } from "react-icons/fa6";
-import { IoClose } from "react-icons/io5";
 
 export default function ChatBox() {
+	const { setIsChatOpen } = useChat();
 	return (
 		<div className="w-xs h-100 bg-white dark:bg-black text-black dark:text-white fixed bottom-0 right-[15%] rounded-tr-2xl rounded-tl-2xl shadow-lg overflow-hidden border border-zinc-200">
 			<div className="flex flex-col h-full">
@@ -15,11 +16,11 @@ export default function ChatBox() {
 						<div className="flex-1">Deux Lim</div>
 
 						<div className="flex gap-2 items-center justify-center text-blue-500">
-							<div className="text-xl">
+							<div
+								onClick={() => setIsChatOpen(false)}
+								className="text-xl cursor-pointer"
+							>
 								<FaMinus />
-							</div>
-							<div className="text-2xl">
-								<IoClose />
 							</div>
 						</div>
 					</div>
@@ -37,7 +38,7 @@ export default function ChatBox() {
 						id=""
 						className="bg-gray-100 rounded-full px-4 h-8 flex-1 text-sm"
 					/>
-					<div className="px-2">
+					<div className="px-2 cursor-pointer">
 						<FaThumbsUp className="text-2xl text-blue-500" />
 					</div>
 				</div>
