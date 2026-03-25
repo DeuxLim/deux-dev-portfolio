@@ -2,7 +2,6 @@ import About from "@/components/Home/About";
 import Certifications from "@/components/Home/Certifications";
 import Timeline from "@/components/Home/Timeline";
 import Footer from "@/components/Home/Footer";
-import Gallery from "@/components/Home/Gallery";
 import Heatmap from "@/components/Home/Heatmap";
 import Projects from "@/components/Home/Projects";
 import TechStack from "@/components/Home/TechStack";
@@ -80,16 +79,6 @@ export default function Content() {
 				className="col-span-4 border rounded-lg border-gray-100 dark:border-zinc-900 hover:shadow-md p-4 md:col-span-4 row-span-1"
 			>
 				<Certifications />
-			</motion.div>
-
-			{/* Gallery */}
-			<motion.div
-				initial={{ opacity: 0, x: -50 }}
-				animate={{ opacity: 1, x: 0 }}
-				transition={{ duration: 0.7, ease: "easeOut" }}
-				className="col-span-4 border rounded-lg border-gray-100 dark:border-zinc-900 hover:shadow-md p-4 md:col-span-12"
-			>
-				<Gallery />
 			</motion.div>
 
 			{/* Footer */}
