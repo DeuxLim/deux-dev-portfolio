@@ -19,5 +19,5 @@ app.use(express.json());
 registerRoutes(app);
 
 app.listen(port, () => {
-	console.log(`Example app listening on port ${port}`);
+	console.log(`DeuxDevPortfolio listening on port ${port}`);
 });
