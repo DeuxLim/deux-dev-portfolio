@@ -5,7 +5,7 @@ import ChatIntro from "@/components/Chatbot/ChatIntro";
 export default function ChatBox() {
 	const { setIsChatOpen } = useChat();
 	return (
-		<div className="w-sm h-150 bg-white dark:bg-black text-black dark:text-white fixed bottom-0 right-[3%] rounded-tr-2xl rounded-tl-2xl shadow-lg overflow-hidden border border-zinc-200">
+		<div className="w-xs md:w-sm md:h-125 bg-white dark:bg-black text-black dark:text-white fixed bottom-0 right-[3%] rounded-tr-2xl rounded-tl-2xl shadow-lg overflow-hidden border border-zinc-200">
 			<div className="flex flex-col h-full">
 				{/* Header */}
 				<div className="w-full h-12 rounded-tr-2xl rounded-tl-2xl shadow-[0_2px_0_0_rgba(0,0,0,0.1)]">
