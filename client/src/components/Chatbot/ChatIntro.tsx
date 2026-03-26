@@ -1,12 +1,11 @@
 export default function ChatIntro() {
 	return (
-		<div className="p-4 text-sm leading-relaxed">
-			<p className="font-semibold">Hey 👋 I’m Deux</p>
+		<div className="py-2 text-xs md:text-sm">
+			<p className="">Hi 👋 I’m Deux</p>
 
 			<p className="mt-2">
-				I build web apps using{" "}
-				<span className="font-medium">Laravel</span> and{" "}
-				<span className="font-medium">React</span>.
+				I build web apps using <span className="">Laravel</span> and{" "}
+				<span className="">React</span>.
 			</p>
 
 			<p className="mt-2">
@@ -14,11 +13,11 @@ export default function ChatIntro() {
 				or what I’ve been working on lately.
 			</p>
 
-			<p className="mt-3 font-medium">Try asking:</p>
-			<ul className="mt-1 list-disc list-inside space-y-1">
+			<p className="mt-3">Try asking:</p>
+			<ul className="mt-1 list-disc list-inside">
 				<li>What projects have you built?</li>
 				<li>What’s your tech stack?</li>
-				<li>How do you approach backend development?</li>
+				<li>How do you debug issues?</li>
 			</ul>
 
 			<p className="mt-3">Or just say hi 🙂</p>
