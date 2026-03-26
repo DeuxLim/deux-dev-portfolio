@@ -2,6 +2,6 @@ import ChatController from "@/controllers/chat.controller.js";
 import { Router } from "express";
 
 const ChatRouter = Router();
-ChatRouter.post("/sendMessage", ChatController.sendMessage);
+ChatRouter.post("/send-message", ChatController.sendMessage);
 
 export default ChatRouter;
