@@ -1,34 +1,56 @@
 import useChat from "@/context/Chat/useChat";
-import { FaMinus, FaThumbsUp } from "react-icons/fa6";
+import { FaCircle, FaMinus, FaThumbsUp } from "react-icons/fa6";
 import ChatIntro from "@/components/Chatbot/ChatIntro";
 import { useMutation } from "@tanstack/react-query";
 import { api } from "@/lib/axios.client";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
+import type { Message } from "../../../../shared/types/gemini.types.ts";
 
 export default function ChatBox() {
 	const { setIsChatOpen } = useChat();
-	const [message, setMessage] = useState("");
+	const [messages, setMessages] = useState<Message[]>([]);
+	const lastMessageRef = useRef<HTMLDivElement | null>(null);
+	const [message, setMessage] = useState<Message>({
+		role: "user",
+		parts: [{ text: "" }],
+	});
 
 	const mutation = useMutation({
 		mutationKey: ["chat"],
 		mutationFn: () => {
 			const response = api.post("/chat/send-message", {
-				role: "user",
-				parts: [{ text: message }],
+				newMessage: {
+					role: "user",
+					parts: [{ text: message.parts[0].text }],
+				},
+				history: messages,
 			});
 			return response;
+		},
+
+		onMutate: () => {
+			setMessages((prev) => [...prev, message]);
+		},
+
+		onSettled: (data) => {
+			setMessages((prev) => [
+				...prev,
+				{ role: "model", parts: [{ text: data?.data?.response }] },
+			]);
 		},
 	});
 
 	const handleSendMessage = () => {
+		setMessage({
+			role: "user",
+			parts: [{ text: "" }],
+		});
 		mutation.mutate();
 	};
 
 	useEffect(() => {
-		if (mutation.data) {
-			console.log(mutation.data);
-		}
-	}, [mutation]);
+		lastMessageRef.current?.scrollIntoView({ behavior: "smooth" });
+	}, [messages, mutation.isPending]);
 
 	return (
 		<div className="w-xs md:w-sm md:h-125 bg-white dark:bg-black text-black dark:text-white fixed bottom-0 right-[3%] rounded-tr-2xl rounded-tl-2xl shadow-lg overflow-hidden border border-zinc-200">
@@ -55,9 +77,8 @@ export default function ChatBox() {
 
 				{/* Content */}
 				<div className="flex-1 p-4 overflow-auto scroll flex gap-4 flex-col">
-					{/* Inbound Group */}
+					{/* Intro Message */}
 					<div className="flex gap-4 flex-col">
-						{/* Sample Chat 1 */}
 						<div className="flex items-end gap-2">
 							<div className="w-6 shrink-0 h-full flex items-end">
 								<img
@@ -72,15 +93,47 @@ export default function ChatBox() {
 						</div>
 					</div>
 
-					{/* Outbound Group */}
 					<div className="flex gap-4 flex-col">
-						{/* Sample Chat 1 */}
-						<div className="flex justify-end gap-2">
-							<div className="bg-blue-700 text-white px-4 py-1 rounded-md max-w-[70%] text-sm">
-								Test chat
-							</div>
-						</div>
+						{messages.length > 0 &&
+							messages.map((msg, index): ReactNode => {
+								return msg.role === "model" ? (
+									<div
+										className="flex items-end gap-2"
+										key={index}
+									>
+										<div className="w-6 shrink-0 h-full flex items-end">
+											<img
+												src="#"
+												className="size-6 rounded-full bg-black"
+												alt=""
+											/>
+										</div>
+										<div className="bg-gray-200 px-4 py-1 rounded-md max-w-[70%] text-sm">
+											{msg.parts[0].text}
+										</div>
+									</div>
+								) : (
+									<div
+										className="flex justify-end gap-2"
+										key={index}
+									>
+										<div className="bg-blue-700 text-white px-4 py-1 rounded-md max-w-[70%] text-sm">
+											{msg.parts[0].text}
+										</div>
+									</div>
+								);
+							})}
 					</div>
+
+					{mutation.isPending && (
+						<div className="ml-8 w-20 px-2 py-2 bg-gray-200 rounded-md flex items-center justify-center gap-2">
+							<FaCircle className="text-gray-400 text-sm animate-bounce" />
+							<FaCircle className="text-gray-400 text-sm animate-bounce [animation-delay:0.15s]" />
+							<FaCircle className="text-gray-400 text-sm animate-bounce [animation-delay:0.3s]" />
+						</div>
+					)}
+
+					<div ref={lastMessageRef}></div>
 				</div>
 
 				{/* Input */}
@@ -90,9 +143,20 @@ export default function ChatBox() {
 						placeholder="Aa"
 						name=""
 						id=""
-						value={message}
+						value={message.parts[0].text}
 						className="bg-gray-100 rounded-full px-4 h-8 flex-1 text-sm"
-						onChange={(e) => setMessage(e.target.value)}
+						onChange={(e) =>
+							setMessage((prev) => ({
+								...prev,
+								role: "user",
+								parts: [{ text: e.target.value }],
+							}))
+						}
+						onKeyDown={(e) => {
+							if (e.key === "Enter") {
+								handleSendMessage();
+							}
+						}}
 					/>
 
 					<button
