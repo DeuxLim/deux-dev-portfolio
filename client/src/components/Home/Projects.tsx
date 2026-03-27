@@ -24,30 +24,30 @@ const projects = [
 export default function Projects() {
 	return (
 		<div className="flex flex-col gap-4">
-			<div className="text-lg font-bold">Projects</div>
+			<div className="text-base sm:text-lg font-bold">Projects</div>
 
-			<div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+			<div className="grid grid-cols-1 md:grid-cols-2 gap-2 sm:gap-3">
 				{projects.map((project, index) => (
 					<a
 						key={index}
-						href={project.url ? `https://${project.url}` : "#"}
-						target="_blank"
-						className="border border-gray-50 dark:border-zinc-900 rounded-lg p-4 hover:shadow-sm transition flex flex-col gap-1.5"
+						href={project.url ? `https://${project.url}` : undefined}
+						target={project.url ? "_blank" : undefined}
+						rel={project.url ? "noreferrer noopener" : undefined}
+						aria-disabled={!project.url}
+						className={`app-chip p-2.5 sm:p-4 flex flex-col gap-1.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--app-accent)] ${
+							project.url
+								? "cursor-pointer"
+								: "cursor-not-allowed opacity-60 pointer-events-none"
+						}`}
 					>
-						{/* Name */}
-						<div className="text-sm font-semibold text-black dark:text-white">
-							{project.name}
-						</div>
-
-						{/* Description */}
-						<div className="text-xs text-zinc-500 dark:text-white">
+						<div className="text-sm font-semibold">{project.name}</div>
+						<div className="text-xs text-[color:var(--app-muted)]">
 							{project.description}
 						</div>
 
-						{/* URL pill */}
 						{project.url && (
 							<div className="mt-2">
-								<span className="text-[11px] px-2 py-1 bg-zinc-100 dark:bg-zinc-800 rounded">
+								<span className="text-[11px] px-2 py-1 rounded-none bg-[color:var(--app-surface-2)] border border-[color:var(--app-border)]">
 									{project.url}
 								</span>
 							</div>

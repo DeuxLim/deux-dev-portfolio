@@ -3,14 +3,29 @@ import ThemeContext from "./ThemeContext";
 import type { Theme } from "@/types/theme.types";
 
 export default function ThemeProvider({ children }: { children: ReactNode }) {
-	// 1. initialize from localStorage
+	const [isManuallySet, setIsManuallySet] = useState(() => {
+		const stored = localStorage.getItem("theme");
+		return stored === "light" || stored === "dark";
+	});
+
+	// 1. initialize from localStorage (fallback to system preference)
 	const [theme, setTheme] = useState<Theme>(() => {
 		const stored = localStorage.getItem("theme");
-		return stored === "dark" ? "dark" : "light";
+		if (stored === "light" || stored === "dark") return stored;
+
+		return window.matchMedia?.("(prefers-color-scheme: dark)").matches
+			? "dark"
+			: "light";
 	});
 
 	// 2. toggle (pure)
 	const toggleTheme = () => {
+		setIsManuallySet(true);
+		const html = document.documentElement;
+		html.classList.add("theme-switching");
+		window.setTimeout(() => {
+			html.classList.remove("theme-switching");
+		}, 260);
 		setTheme((prev) => (prev === "light" ? "dark" : "light"));
 	};
 
@@ -25,19 +40,21 @@ export default function ThemeProvider({ children }: { children: ReactNode }) {
 		}
 	}, [theme]);
 
-	// 4. persist to localStorage
+	// 4. persist to localStorage (only after manual override)
 	useEffect(() => {
-		localStorage.setItem("theme", theme);
-	}, [theme]);
+		if (isManuallySet) {
+			localStorage.setItem("theme", theme);
+		} else {
+			localStorage.removeItem("theme");
+		}
+	}, [theme, isManuallySet]);
 
 	// 5. listen to system changes (only if no manual override)
 	useEffect(() => {
 		const media = window.matchMedia("(prefers-color-scheme: dark)");
 
 		const handleChange = (e: MediaQueryListEvent) => {
-			const stored = localStorage.getItem("theme");
-
-			if (!stored) {
+			if (!isManuallySet) {
 				setTheme(e.matches ? "dark" : "light");
 			}
 		};
@@ -47,7 +64,7 @@ export default function ThemeProvider({ children }: { children: ReactNode }) {
 		return () => {
 			media.removeEventListener("change", handleChange);
 		};
-	}, []);
+	}, [isManuallySet]);
 
 	return (
 		<ThemeContext.Provider

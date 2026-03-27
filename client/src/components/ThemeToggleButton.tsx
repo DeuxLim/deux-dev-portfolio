@@ -18,23 +18,20 @@ export default function ThemeToggleButton() {
 
 	return (
 		<button
-			className={`w-14 h-6 p-0.5 rounded-full flex items-center shadow-sm transform transition-all ease-in-out duration-300
-                 ${!isDarkMode ? "bg-zinc-200" : "bg-zinc-400"} 
-            `}
+			type="button"
+			aria-label={isDarkMode ? "Switch to light mode" : "Switch to dark mode"}
+			className="h-8 w-10 sm:h-9 sm:w-11 inline-flex items-center justify-center rounded-none border border-[color:var(--app-border)] bg-[color:var(--app-surface-2)] shadow-sm transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--app-accent)] active:scale-[0.98]"
 			onClick={handleToggle}
 		>
-			<div
-				className={`w-8 h-5 rounded-full flex items-center justify-center transform transition-all ease-in-out duration-500
-                ${!isDarkMode ? "bg-zinc-50 translate-x-0" : "bg-black/80 translate-x-5"}`}
-			>
-				{!isDarkMode ? (
-					<IoMdSunny
-						className={`text-sm ${isAnimating ? "animate-spin" : ""}`}
-					/>
-				) : (
-					<IoMdMoon className="text-sm text-white" />
-				)}
-			</div>
+			{isDarkMode ? (
+				<IoMdSunny
+					className={`text-sm sm:text-base text-[color:var(--app-accent)] ${
+						isAnimating ? "motion-safe:animate-spin" : ""
+					}`}
+				/>
+			) : (
+				<IoMdMoon className="text-sm sm:text-base text-[color:var(--app-accent)]" />
+			)}
 		</button>
 	);
 }

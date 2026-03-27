@@ -1,6 +1,7 @@
 import me from "@/assets/me.jpeg";
 import ThemeToggleButton from "@/components/ThemeToggleButton";
 import { motion } from "motion/react";
+import usePrefersReducedMotion from "@/hooks/usePrefersReducedMotion";
 
 import {
 	IoBriefcase,
@@ -13,18 +14,26 @@ import {
 import cover from "@/assets/coverphoto.jpg";
 
 export default function Header() {
+	const prefersReducedMotion = usePrefersReducedMotion();
+
 	return (
 		<motion.div
-			initial={{ opacity: 0, y: -50 }}
-			animate={{ opacity: 1, y: 0 }}
-			transition={{ duration: 0.7, ease: "easeOut" }}
+			initial={prefersReducedMotion ? false : { opacity: 0, y: -24 }}
+			animate={prefersReducedMotion ? undefined : { opacity: 1, y: 0 }}
+			transition={
+				prefersReducedMotion
+					? undefined
+					: { duration: 0.55, ease: [0.16, 1, 0.3, 1] }
+			}
+			className="app-card p-2.5 sm:p-4"
 		>
 			{/* Mobile Profile And Cover */}
 			<div
-				className="w-full md:hidden flex items-center justify-center h-50 rounded-4xl bg-cover bg-center"
+				className="relative w-full md:hidden flex items-center justify-center h-36 sm:h-48 rounded-none bg-cover bg-center border border-[color:var(--app-border)] overflow-hidden"
 				style={{ backgroundImage: `url(${cover})` }}
 			>
-				<div className="md:hidden size-40 overflow-hidden shrink-0 rounded-full shadow-lg">
+				<div className="absolute inset-0 bg-[color:var(--app-cover-overlay)]" />
+				<div className="relative md:hidden size-24 sm:size-28 overflow-hidden shrink-0 rounded-full shadow-sm border border-[color:var(--app-border)]">
 					<img
 						src={me}
 						alt=""
@@ -34,10 +43,10 @@ export default function Header() {
 			</div>
 
 			{/* Header */}
-			<section className="flex gap-4 h-40">
+			<section className="flex gap-3 md:gap-4 md:h-40 pt-3 sm:pt-4 md:pt-0">
 				{/* Profile picture */}
 				<div className="hidden h-full md:flex items-center justify-center">
-					<div className="md:flex md:h-40 md:w-40 overflow-hidden rounded-lg">
+					<div className="md:flex md:h-40 md:w-40 overflow-hidden rounded-none border border-[color:var(--app-border)]">
 						<img
 							src={me}
 							alt=""
@@ -47,55 +56,75 @@ export default function Header() {
 				</div>
 
 				{/* Basic Info */}
-				<div className="flex w-full justify-center flex-col p-1 gap-4">
+				<div className="flex w-full justify-center flex-col p-1 gap-3 sm:gap-4">
 					{/* Top */}
 					<div className="flex flex-col h-full gap-2">
 						<div className="flex flex-col gap-1 min-w-0">
 							<div className="flex items-center justify-between">
-								<div className="font-semibold text-2xl md:text-4xl ">
+								<div className="font-semibold text-[20px] sm:text-3xl md:text-4xl tracking-tight">
 									Deux Daniel Lim
 								</div>
 								<ThemeToggleButton />
 							</div>
-							<div className="text-xs md:text-sm">
+							<div className="text-xs md:text-sm text-[color:var(--app-muted)]">
 								Full Stack Developer ( Laravel & React )
 							</div>
 						</div>
-						<div className="flex items-center justify-start text-xs gap-1 font-light">
+						<div className="flex items-center justify-start text-xs gap-1 text-[color:var(--app-muted)]">
 							<IoLocationOutline />
 							Metro Manila
 						</div>
-						<div className="flex items-center justify-start text-xs gap-1 font-light">
+						<div className="flex items-center justify-start text-xs gap-1 text-[color:var(--app-muted)]">
 							<IoBriefcase />3 years work experience | BS-IT
 							Graduate | Cum Laude
 						</div>
 					</div>
 					{/* Bottom */}
-					<div className="flex gap-1 flex-wrap">
-						<div className="flex items-center justify-center gap-1 px-2 py-1 rounded-md hover:shadow-lg border dark:border-0 dark:hover:bg-zinc-800 border-zinc-100 cursor-pointer">
-							<IoLogoGithub className="text-xl" />
+					<div className="flex gap-1.5 flex-wrap">
+						<button
+							type="button"
+							title="GitHub"
+							aria-label="GitHub"
+							className="app-chip flex items-center justify-center gap-1 px-2.5 py-1.5 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--app-accent)]"
+						>
+							<IoLogoGithub className="text-lg md:text-xl" />
 							<div className="md:text-xs md:block font-light hidden">
 								Github
 							</div>
-						</div>
-						<div className="flex items-center justify-center gap-1 px-2 py-1 rounded-md hover:shadow-lg border dark:border-0 dark:hover:bg-zinc-800 border-zinc-100 cursor-pointer">
-							<IoLogoLinkedin className="text-xl" />
+						</button>
+						<button
+							type="button"
+							title="LinkedIn"
+							aria-label="LinkedIn"
+							className="app-chip flex items-center justify-center gap-1 px-2.5 py-1.5 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--app-accent)]"
+						>
+							<IoLogoLinkedin className="text-lg md:text-xl" />
 							<div className="md:text-xs md:block font-light hidden">
 								LinkedIn
 							</div>
-						</div>
-						<div className="flex items-center justify-center gap-1 px-2 py-1 rounded-md hover:shadow-lg border dark:border-0 dark:hover:bg-zinc-800 border-zinc-100 cursor-pointer">
-							<IoCall className="text-xl" />
+						</button>
+						<button
+							type="button"
+							title="Phone"
+							aria-label="Phone"
+							className="app-chip flex items-center justify-center gap-1 px-2.5 py-1.5 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--app-accent)]"
+						>
+							<IoCall className="text-lg md:text-xl" />
 							<div className="md:text-xs md:block font-light hidden text-nowrap">
 								+63 945-428-6156
 							</div>
-						</div>
-						<div className="flex items-center justify-center gap-1 px-2 py-1 rounded-md hover:shadow-lg border dark:border-0 dark:hover:bg-zinc-800 border-zinc-100 cursor-pointer">
-							<IoMail className="text-xl" />
+						</button>
+						<button
+							type="button"
+							title="Email"
+							aria-label="Email"
+							className="app-chip flex items-center justify-center gap-1 px-2.5 py-1.5 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--app-accent)]"
+						>
+							<IoMail className="text-lg md:text-xl" />
 							<div className="md:text-xs md:block font-light hidden">
 								limdeux27@gmail.com
 							</div>
-						</div>
+						</button>
 					</div>
 				</div>
 			</section>

@@ -47,15 +47,15 @@ export default function GitHeapMap() {
 
 	// 4. Color scale
 	const colors = [
-		"bg-gray-200",
-		"bg-green-200",
-		"bg-green-400",
-		"bg-green-600",
-		"bg-green-800",
-	];
+		"bg-[color:var(--app-heat-0)]",
+		"bg-[color:var(--app-heat-1)]",
+		"bg-[color:var(--app-heat-2)]",
+		"bg-[color:var(--app-heat-3)]",
+		"bg-[color:var(--app-heat-4)]",
+	] as const;
 
 	return (
-		<div className="text-gray-400 self-start">
+		<div className="text-[color:var(--app-muted)] self-start">
 			{/* Months */}
 			<div className="grid grid-flow-col auto-cols-[10px] gap-px mb-2 text-[10px]">
 				{monthLabels.map((month, i) => (
@@ -70,9 +70,7 @@ export default function GitHeapMap() {
 						<div
 							key={`${wi}-${di}`}
 							title={day.date.toDateString()}
-							className={`w-2.5 h-2.5 rounded-xs ${
-								colors[day.value]
-							}`}
+							className={`w-2.5 h-2.5 rounded-none ${colors[day.value]}`}
 						/>
 					)),
 				)}

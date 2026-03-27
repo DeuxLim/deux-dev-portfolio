@@ -33,7 +33,7 @@ export default function Experience() {
 		// comment line
 		lines.push({
 			content: (
-				<span className="text-zinc-400 dark:text-zinc-500 text-[12px]">
+				<span className="text-[color:var(--app-subtle)] text-[11px] sm:text-[12px]">
 					{`// ${String(i + 1).padStart(2, "0")} — ${exp.company} · ${exp.period}`}
 				</span>
 			),
@@ -41,14 +41,14 @@ export default function Experience() {
 		// function declaration
 		lines.push({
 			content: (
-				<span className="text-[13px]">
-					<span className="text-zinc-400 dark:text-zinc-500">
+				<span className="text-[12px] sm:text-[13px]">
+					<span className="text-[color:var(--app-subtle)]">
 						function{" "}
 					</span>
-					<span className="font-semibold text-zinc-900 dark:text-white">
+					<span className="font-semibold text-[color:var(--app-text)]">
 						{exp.fnName}
 					</span>
-					<span className="text-zinc-400 dark:text-zinc-500">
+					<span className="text-[color:var(--app-subtle)]">
 						() {"{"}
 					</span>
 				</span>
@@ -58,11 +58,11 @@ export default function Experience() {
 		exp.highlights.forEach((item) => {
 			lines.push({
 				content: (
-					<span className="flex gap-2 pl-4 text-[12.5px] leading-snug">
-						<span className="text-zinc-300 dark:text-zinc-600 shrink-0">
+					<span className="flex gap-2 pl-4 text-[11.5px] sm:text-[12.5px] leading-snug">
+						<span className="text-[color:var(--app-subtle)] shrink-0">
 							›
 						</span>
-						<span className="text-zinc-500 dark:text-zinc-400">
+						<span className="text-[color:var(--app-muted)]">
 							{item}
 						</span>
 					</span>
@@ -72,7 +72,7 @@ export default function Experience() {
 		// closing brace
 		lines.push({
 			content: (
-				<span className="text-zinc-400 dark:text-zinc-500 text-[13px]">
+				<span className="text-[color:var(--app-subtle)] text-[12px] sm:text-[13px]">
 					{"}"}
 				</span>
 			),
@@ -86,10 +86,8 @@ export default function Experience() {
 	return (
 		<div className="space-y-3">
 			{/* Filename bar */}
-			<div className="flex items-center gap-2 border-b border-zinc-200 dark:border-zinc-800 pb-2">
-				<span className="text-lg font-bold text-black dark:text-zinc-500">
-					Experience
-				</span>
+			<div className="flex items-center gap-2 border-b border-[color:var(--app-border)] pb-2">
+				<span className="text-base sm:text-lg font-bold">Experience</span>
 			</div>
 
 			{/* Lines */}
@@ -97,9 +95,9 @@ export default function Experience() {
 				{lines.map((line, i) => (
 					<div
 						key={i}
-						className="grid grid-cols-[28px_1fr] gap-x-3 min-h-[20px] group"
+						className="grid grid-cols-[24px_1fr] sm:grid-cols-[28px_1fr] gap-x-2.5 sm:gap-x-3 min-h-[20px] group"
 					>
-						<span className="text-[10px] text-right text-zinc-300 dark:text-zinc-700 group-hover:text-zinc-400 dark:group-hover:text-zinc-500 select-none pt-px">
+						<span className="text-[10px] text-right text-[color:var(--app-subtle)] opacity-40 group-hover:opacity-70 select-none pt-px">
 							{line.content !== null ? i + 1 : ""}
 						</span>
 						<span className="leading-relaxed">{line.content}</span>

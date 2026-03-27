@@ -1,16 +1,33 @@
 import { GitHubCalendar } from "react-github-calendar";
 import useTheme from "@/context/Theme/useTheme";
+import { useEffect, useState } from "react";
 
 export default function Heatmap() {
 	const { isDarkMode } = useTheme();
+	const [isCompact, setIsCompact] = useState(false);
+
+	useEffect(() => {
+		const mediaQuery = window.matchMedia?.("(max-width: 640px)");
+		if (!mediaQuery) return;
+
+		const handleChange = () => setIsCompact(mediaQuery.matches);
+		handleChange();
+		mediaQuery.addEventListener("change", handleChange);
+
+		return () => mediaQuery.removeEventListener("change", handleChange);
+	}, []);
 
 	return (
 		<div className="space-y-4 w-full">
-			<div className="text-lg font-bold">Daily Coding Heat Map</div>
+			<div className="text-base sm:text-lg font-bold">Daily Coding Heat Map</div>
 
-			<div className="w-full flex items-center justify-center">
+			<div className="w-full overflow-x-auto">
 				<GitHubCalendar
 					username="deuxlim"
+					blockSize={isCompact ? 10 : 12}
+					blockMargin={isCompact ? 2 : 3}
+					fontSize={isCompact ? 11 : 13}
+					style={{ margin: "0 auto" }}
 					transformData={(contributions) => {
 						const now = new Date();
 						const sixMonthsAgo = new Date();
