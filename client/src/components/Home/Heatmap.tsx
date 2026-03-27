@@ -21,8 +21,15 @@ export default function Heatmap() {
 							return date >= sixMonthsAgo;
 						});
 					}}
-					{...(isDarkMode && {
-						theme: {
+					theme={{
+						light: [
+							"#ebedf0", // empty (slightly darker than default)
+							"#9be9a8", // low
+							"#40c463", // medium
+							"#30a14e", // high
+							"#216e39", // very high
+						],
+						...(isDarkMode && {
 							dark: [
 								"#161b22",
 								"#0e4429",
@@ -30,9 +37,9 @@ export default function Heatmap() {
 								"#26a641",
 								"#39d353",
 							],
-						},
-						colorScheme: "dark",
-					})}
+						}),
+					}}
+					colorScheme={isDarkMode ? "dark" : "light"}
 				/>
 			</div>
 		</div>
