@@ -62,7 +62,7 @@ export default function TechStack() {
 				</div>
 			</div>
 
-			<div className="h-px bg-[color:var(--app-border)] my-1" />
+			<div className="h-px bg-(--app-border) my-1" />
 
 			{/* Backend */}
 			<div className="space-y-1">
@@ -95,7 +95,7 @@ export default function TechStack() {
 				</div>
 			</div>
 
-			<div className="h-px bg-[color:var(--app-border)] my-1" />
+			<div className="h-px bg-(--app-border) my-1" />
 
 			{/* Tools */}
 			<div className="space-y-1">

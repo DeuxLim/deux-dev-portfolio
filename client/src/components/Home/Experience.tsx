@@ -33,7 +33,7 @@ export default function Experience() {
 		// comment line
 		lines.push({
 			content: (
-				<span className="text-[color:var(--app-subtle)] text-[11px] sm:text-[12px]">
+				<span className="text-(--app-subtle) text-[11px] sm:text-xs">
 					{`// ${String(i + 1).padStart(2, "0")} — ${exp.company} · ${exp.period}`}
 				</span>
 			),
@@ -41,14 +41,14 @@ export default function Experience() {
 		// function declaration
 		lines.push({
 			content: (
-				<span className="text-[12px] sm:text-[13px]">
-					<span className="text-[color:var(--app-subtle)]">
+				<span className="text-xs sm:text-[13px]">
+					<span className="text-(--app-subtle)">
 						function{" "}
 					</span>
-					<span className="font-semibold text-[color:var(--app-text)]">
+					<span className="font-semibold text-(--app-text)">
 						{exp.fnName}
 					</span>
-					<span className="text-[color:var(--app-subtle)]">
+					<span className="text-(--app-subtle)">
 						() {"{"}
 					</span>
 				</span>
@@ -59,10 +59,10 @@ export default function Experience() {
 			lines.push({
 				content: (
 					<span className="flex gap-2 pl-4 text-[11.5px] sm:text-[12.5px] leading-snug">
-						<span className="text-[color:var(--app-subtle)] shrink-0">
+						<span className="text-(--app-subtle) shrink-0">
 							›
 						</span>
-						<span className="text-[color:var(--app-muted)]">
+						<span className="text-(--app-muted)">
 							{item}
 						</span>
 					</span>
@@ -72,7 +72,7 @@ export default function Experience() {
 		// closing brace
 		lines.push({
 			content: (
-				<span className="text-[color:var(--app-subtle)] text-[12px] sm:text-[13px]">
+				<span className="text-(--app-subtle) text-xs sm:text-[13px]">
 					{"}"}
 				</span>
 			),
@@ -86,7 +86,7 @@ export default function Experience() {
 	return (
 		<div className="space-y-3">
 			{/* Filename bar */}
-			<div className="flex items-center gap-2 border-b border-[color:var(--app-border)] pb-2">
+			<div className="flex items-center gap-2 border-b border-(--app-border) pb-2">
 				<span className="text-base sm:text-lg font-bold">Experience</span>
 			</div>
 
@@ -95,9 +95,9 @@ export default function Experience() {
 				{lines.map((line, i) => (
 					<div
 						key={i}
-						className="grid grid-cols-[24px_1fr] sm:grid-cols-[28px_1fr] gap-x-2.5 sm:gap-x-3 min-h-[20px] group"
+						className="grid grid-cols-[24px_1fr] sm:grid-cols-[28px_1fr] gap-x-2.5 sm:gap-x-3 min-h-5 group"
 					>
-						<span className="text-[10px] text-right text-[color:var(--app-subtle)] opacity-40 group-hover:opacity-70 select-none pt-px">
+						<span className="text-[10px] text-right text-(--app-subtle) opacity-40 group-hover:opacity-70 select-none pt-px">
 							{line.content !== null ? i + 1 : ""}
 						</span>
 						<span className="leading-relaxed">{line.content}</span>

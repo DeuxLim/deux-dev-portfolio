@@ -40,12 +40,12 @@ export default function Timeline() {
 								<div
 									className={`w-2 h-2 shrink-0 mt-0.5 ${
 										index === 0
-											? "bg-[color:var(--app-text)]"
-											: "bg-[color:var(--app-border)]"
+											? "bg-(--app-text)"
+											: "bg-(--app-border)"
 									}`}
 								/>
 								{index < experiences.length - 1 && (
-									<div className="w-px flex-1 bg-[color:var(--app-border)] mt-1" />
+									<div className="w-px flex-1 bg-(--app-border) mt-1" />
 								)}
 							</div>
 
@@ -53,17 +53,17 @@ export default function Timeline() {
 							<div className="pb-7 flex-1 min-w-0">
 								{/* Position + Year */}
 								<div className="flex items-start justify-between gap-2">
-									<span className="text-[13px] font-semibold leading-none flex-1 min-w-0">
+									<span className="text-sm font-semibold leading-none flex-1 min-w-0">
 										{exp.position}
 									</span>
-									<span className="text-xs text-[color:var(--app-muted)] tracking-wide leading-none shrink-0">
+									<span className="text-xs text-(--app-muted) tracking-wide leading-none shrink-0">
 										{exp.year}
 									</span>
 								</div>
 
 								{/* Company + Honor */}
 								{(exp.company || exp.honor) && (
-									<div className="text-xs text-[color:var(--app-muted)] mt-1 flex items-start gap-2">
+									<div className="text-xs text-(--app-muted) mt-1 flex items-start gap-2">
 										<div className="flex-1 min-w-0">
 											{exp.honor && (
 												<span>{exp.honor} · </span>

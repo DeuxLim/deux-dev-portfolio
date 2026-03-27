@@ -106,7 +106,7 @@ export default function Content() {
 						? undefined
 						: { duration: 0.55, ease: [0.16, 1, 0.3, 1] }
 				}
-				className="md:col-span-12 col-span-4 border-t border-[color:var(--app-border)] p-2.5 sm:p-4 flex items-center justify-center mt-3 sm:mt-4 h-16 sm:h-24"
+				className="md:col-span-12 col-span-4 border-t border-(--app-border) p-2.5 sm:p-4 flex items-center justify-center mt-3 sm:mt-4 h-16 sm:h-24"
 			>
 				<Footer />
 			</motion.div>

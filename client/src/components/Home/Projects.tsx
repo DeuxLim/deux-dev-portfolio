@@ -34,20 +34,20 @@ export default function Projects() {
 						target={project.url ? "_blank" : undefined}
 						rel={project.url ? "noreferrer noopener" : undefined}
 						aria-disabled={!project.url}
-						className={`app-chip p-2.5 sm:p-4 flex flex-col gap-1.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--app-accent)] ${
+						className={`app-chip p-2.5 sm:p-4 flex flex-col gap-1.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-(--app-accent) ${
 							project.url
 								? "cursor-pointer"
 								: "cursor-not-allowed opacity-60 pointer-events-none"
 						}`}
 					>
 						<div className="text-sm font-semibold">{project.name}</div>
-						<div className="text-xs text-[color:var(--app-muted)]">
+						<div className="text-xs text-(--app-muted)">
 							{project.description}
 						</div>
 
 						{project.url && (
 							<div className="mt-2">
-								<span className="text-[11px] px-2 py-1 rounded-none bg-[color:var(--app-surface-2)] border border-[color:var(--app-border)]">
+								<span className="text-[11px] px-2 py-1 rounded-none bg-(--app-surface-2) border border-(--app-border)">
 									{project.url}
 								</span>
 							</div>

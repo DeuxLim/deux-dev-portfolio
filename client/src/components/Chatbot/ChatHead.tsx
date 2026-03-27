@@ -25,27 +25,27 @@ export default function ChatHead() {
 		>
 			<div className="relative size-14 md:size-16">
 				{/* Avatar */}
-				<div className="size-14 md:size-16 rounded-full overflow-hidden border border-[color:var(--app-border)]">
+				<div className="size-14 md:size-16 rounded-full overflow-hidden border border-(--app-border)">
 					<img src={me} alt="" />
 				</div>
 
 				{/* Active Status */}
-				<div className="bg-green-400 rounded-full size-3.5 md:size-4 absolute bottom-0 right-0 border border-[color:var(--app-surface)]"></div>
+				<div className="bg-green-400 rounded-full size-3.5 md:size-4 absolute bottom-0 right-0 border border-(--app-surface)"></div>
 
 				{/* Close Button */}
 				<div
-					className="group-hover:flex top-0 right-0 size-5 absolute hidden justify-center items-center bg-[color:var(--app-surface)] text-[color:var(--app-text)] border border-[color:var(--app-border)] rounded-full"
+					className="group-hover:flex top-0 right-0 size-5 absolute hidden justify-center items-center bg-(--app-surface) text-(--app-text) border border-(--app-border) rounded-full"
 				>
 					<IoCloseSharp size={14} />
 				</div>
 
 				{/* Chat Preview */}
 				<div
-					className="group-hover:flex hidden rounded-none shadow-[0_2px_10px_-2px_rgba(0,0,0,0.18)] absolute -top-3 -left-40 w-36 bg-[color:var(--app-surface)] text-[color:var(--app-text)] border border-[color:var(--app-border)]"
+					className="group-hover:flex hidden rounded-none shadow-[0_2px_10px_-2px_rgba(0,0,0,0.18)] absolute -top-3 -left-40 w-36 bg-(--app-surface) text-(--app-text) border border-(--app-border)"
 				>
 					<div className="flex flex-col p-3 text-sm">
 						<div className="font-semibold">Deux Lim</div>
-						<div className="font-light text-[color:var(--app-muted)]">
+						<div className="font-light text-(--app-muted)">
 							Hi, Let's chat!
 						</div>
 					</div>
@@ -54,9 +54,9 @@ export default function ChatHead() {
 					<div className="absolute top-[60%] left-full">
 						<div
 							className={`w-0 h-0 
-								border-t-[6px] border-t-transparent
-								border-b-[6px] border-b-transparent
-								border-l-[10px] border-l-[color:var(--app-surface)]`}
+								border-t-6 border-t-transparent
+								border-b-6 border-b-transparent
+								border-l-10 border-l-(--app-surface)`}
 						></div>
 					</div>
 				</div>
