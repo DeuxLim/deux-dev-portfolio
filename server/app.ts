@@ -1,17 +1,14 @@
 import express from "express";
 import "dotenv/config";
 import cors from "cors";
+import { corsOptions } from "@/config/cors.js";
 import registerRoutes from "@/routes/routes.js";
 
 const app = express();
 const port = 3000;
 
 /* Middlewares */
-app.use(
-	cors({
-		origin: process.env.CLIENT_URL,
-	}),
-);
+app.use(cors(corsOptions));
 
 app.use(express.json());
 
