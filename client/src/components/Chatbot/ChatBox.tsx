@@ -8,6 +8,7 @@ import me from "@/assets/me.jpeg";
 import { HiMiniPaperAirplane } from "react-icons/hi2";
 import { motion } from "motion/react";
 import usePrefersReducedMotion from "@/hooks/usePrefersReducedMotion";
+import ReactMarkdown from "react-markdown";
 
 export default function ChatBox() {
 	const { setIsChatOpen } = useChat();
@@ -107,7 +108,9 @@ export default function ChatBox() {
 												/>
 											</div>
 											<div className="bg-(--app-surface-2) border border-(--app-border) px-4 py-2 rounded-none max-w-[80%] text-[13px] sm:text-sm">
-												{msg.parts[0].text}
+												<ReactMarkdown>
+													{msg.parts[0].text}
+												</ReactMarkdown>
 											</div>
 										</div>
 									) : (
