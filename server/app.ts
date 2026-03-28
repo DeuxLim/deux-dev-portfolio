@@ -1,8 +1,8 @@
 import express from "express";
 import "dotenv/config";
 import cors from "cors";
-import { corsOptions } from "@/config/cors.js";
-import registerRoutes from "@/routes/routes.js";
+import { corsOptions } from "./config/cors.js";
+import registerRoutes from "./routes/routes.js";
 
 const app = express();
 const port = 3000;

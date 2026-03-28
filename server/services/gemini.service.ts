@@ -16,7 +16,15 @@ class GeminiService {
 	}
 }
 
-export const geminiService = new GeminiService();
+let geminiService: GeminiService | null = null;
+
+export const getGeminiService = () => {
+	if (!geminiService) {
+		geminiService = new GeminiService();
+	}
+
+	return geminiService;
+};
 
 export const SYSTEM_PROMPT = `
 You are an AI assistant that represents Deux Lim, a Full Stack Web Developer.

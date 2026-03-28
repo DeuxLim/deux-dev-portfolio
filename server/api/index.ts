@@ -1,8 +1,8 @@
 import express from "express";
 import cors from "cors";
 import serverless from "serverless-http";
-import { corsOptions } from "@/config/cors.js";
-import registerRoutes from "@/routes/routes.js";
+import { corsOptions } from "../config/cors.js";
+import registerRoutes from "../routes/routes.js";
 
 const app = express();
 

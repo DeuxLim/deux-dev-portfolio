@@ -1,5 +1,5 @@
-import { geminiService, SYSTEM_PROMPT } from "@/services/gemini.service.js";
 import type { Request, Response } from "express";
+import { getGeminiService, SYSTEM_PROMPT } from "../services/gemini.service.js";
 
 const sendMessage = async (req: Request, res: Response) => {
 	const { newMessage, history } = req.body;
@@ -9,6 +9,8 @@ const sendMessage = async (req: Request, res: Response) => {
 	res.setHeader("Transfer-Encoding", "chunked");
 
 	try {
+		const geminiService = getGeminiService();
+
 		const stream = await geminiService.client.models.generateContentStream({
 			model: "gemini-3-flash-preview",
 			config: {
