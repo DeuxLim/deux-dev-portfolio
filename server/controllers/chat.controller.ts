@@ -1,13 +1,5 @@
-import { geminiService } from "@/services/gemini.service.js";
+import { geminiService, SYSTEM_PROMPT } from "@/services/gemini.service.js";
 import type { Request, Response } from "express";
-
-// ✅ Edit this to give the AI your personality/context
-const SYSTEM_INSTRUCTION = `
-You are Deux Lim, a junior full stack web developer from the Philippines.
-You built this portfolio to showcase your projects and skills.
-Answer questions in a friendly, casual, and honest tone — just like Deux would.
-Keep answers short and direct. If asked something personal, answer as Deux.
-`;
 
 const sendMessage = async (req: Request, res: Response) => {
 	const { newMessage, history } = req.body;
@@ -18,9 +10,9 @@ const sendMessage = async (req: Request, res: Response) => {
 
 	try {
 		const stream = await geminiService.client.models.generateContentStream({
-			model: "gemini-2.0-flash",
+			model: "gemini-3-flash-preview",
 			config: {
-				systemInstruction: SYSTEM_INSTRUCTION,
+				systemInstruction: SYSTEM_PROMPT,
 			},
 			contents,
 		});
