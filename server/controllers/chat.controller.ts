@@ -22,7 +22,7 @@ const sendMessage = async (req: Request, res: Response) => {
 		}
 	} catch (error) {
 		console.log(error);
-		res.write("Something went wrong. Please try again later.");
+		res.write("Something went wrong. Please try again later. [backend]");
 	} finally {
 		res.end();
 	}
