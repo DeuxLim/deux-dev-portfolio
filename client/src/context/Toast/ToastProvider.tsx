@@ -20,6 +20,11 @@ type ToastState = {
     visible: boolean;
 };
 
+type ToastVisuals = {
+    icon: ReactNode;
+    accentClassName: string;
+};
+
 export default function ToastProvider({ children }: Props) {
     const [toast, setToast] = useState<ToastState>({
         message: "",
@@ -50,24 +55,44 @@ export default function ToastProvider({ children }: Props) {
         return () => clearTimeout(timer);
     }, [toast.visible]);
 
-    const getIcon = () => {
+    const getVisuals = (): ToastVisuals => {
         switch (toast.type) {
             case "success":
-                return (
-                    <IoIosCheckmarkCircleOutline className="text-2xl text-green-500" />
-                );
+                return {
+                    icon: (
+                        <IoIosCheckmarkCircleOutline className="text-2xl text-emerald-500 dark:text-emerald-400" />
+                    ),
+                    accentClassName:
+                        "border-l-emerald-500/80 bg-emerald-500/6 dark:border-l-emerald-400/80 dark:bg-emerald-400/8",
+                };
             case "error":
-                return (
-                    <IoIosCloseCircleOutline className="text-2xl text-red-500" />
-                );
+                return {
+                    icon: (
+                        <IoIosCloseCircleOutline className="text-2xl text-rose-500 dark:text-rose-400" />
+                    ),
+                    accentClassName:
+                        "border-l-rose-500/80 bg-rose-500/6 dark:border-l-rose-400/80 dark:bg-rose-400/8",
+                };
             case "warning":
-                return <IoIosWarning className="text-2xl text-yellow-500" />;
+                return {
+                    icon: (
+                        <IoIosWarning className="text-2xl text-amber-500 dark:text-amber-400" />
+                    ),
+                    accentClassName:
+                        "border-l-amber-500/80 bg-amber-500/6 dark:border-l-amber-400/80 dark:bg-amber-400/8",
+                };
             case "info":
-                return (
-                    <IoIosInformationCircleOutline className="text-2xl text-blue-500" />
-                );
+                return {
+                    icon: (
+                        <IoIosInformationCircleOutline className="text-2xl text-sky-500 dark:text-sky-400" />
+                    ),
+                    accentClassName:
+                        "border-l-sky-500/80 bg-sky-500/6 dark:border-l-sky-400/80 dark:bg-sky-400/8",
+                };
         }
     };
+
+    const visuals = getVisuals();
 
     return (
         <ToastContext.Provider
@@ -81,11 +106,17 @@ export default function ToastProvider({ children }: Props) {
                         animate={{ opacity: 1, y: 0, scale: 1 }}
                         exit={{ opacity: 0, y: -10, scale: 0.95 }}
                         transition={{ duration: 0.25, ease: "easeOut" }}
-                        className="pointer-events-none fixed top-8 left-1/2 z-50 -translate-x-1/2"
+                        className="pointer-events-none fixed top-8 left-1/2 z-50 w-[calc(100vw-1.5rem)] max-w-md -translate-x-1/2 sm:w-auto"
                     >
-                        <div className="pointer-events-auto flex items-center gap-2 rounded-md border border-gray-300 bg-white px-6 py-3 shadow-xl">
-                            {getIcon()}
-                            <div className="text-sm">{toast.message}</div>
+                        <div
+                            role="status"
+                            aria-live="polite"
+                            className={`pointer-events-auto flex items-center gap-3 border border-l-4 border-(--app-border) bg-(--app-surface) px-4 py-3 text-(--app-text) shadow-[var(--app-shadow)] backdrop-blur-md ${visuals.accentClassName}`}
+                        >
+                            {visuals.icon}
+                            <div className="text-sm font-medium text-(--app-text)">
+                                {toast.message}
+                            </div>
                         </div>
                     </motion.div>
                 )}
