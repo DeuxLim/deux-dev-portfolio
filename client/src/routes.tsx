@@ -4,6 +4,7 @@ import Home from "@/pages/Home";
 import ChatProvider from "./context/Chat/ChatProvider";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import ToastProvider from "./context/Toast/ToastProvider";
+import Projects from "./pages/Projects";
 
 const queryClient = new QueryClient();
 
@@ -23,6 +24,10 @@ const routes = createBrowserRouter([
             {
                 index: true,
                 Component: Home,
+            },
+            {
+                path: "projects",
+                Component: Projects,
             },
         ],
     },
