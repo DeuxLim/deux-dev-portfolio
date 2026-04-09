@@ -3,6 +3,7 @@ import { IoCloseSharp } from "react-icons/io5";
 import useChat from "@/context/Chat/useChat";
 import { motion } from "motion/react";
 import usePrefersReducedMotion from "@/hooks/usePrefersReducedMotion";
+import { portfolioContent } from "@/data/portfolioContent";
 
 export default function ChatHead() {
     const { setIsChatOpen } = useChat();
@@ -52,9 +53,11 @@ export default function ChatHead() {
                 {/* Chat Preview */}
                 <div className="absolute -top-3 -left-40 hidden w-36 rounded-none border border-(--app-border) bg-(--app-surface) text-(--app-text) shadow-[0_2px_10px_-2px_rgba(0,0,0,0.18)] group-hover:flex">
                     <div className="flex flex-col items-start p-3 text-sm">
-                        <div className="font-semibold">Deux Lim</div>
+                        <div className="font-semibold">
+                            {portfolioContent.chat.botName}
+                        </div>
                         <div className="font-light text-(--app-muted)">
-                            Hi, Let's chat!
+                            {portfolioContent.chat.floatingPreview}
                         </div>
                     </div>
 

@@ -14,10 +14,12 @@ import {
 import cover from "@/assets/coverphoto.jpg";
 import useToast from "@/context/Toast/useToast";
 import { FaDownload } from "react-icons/fa6";
+import { portfolioContent } from "@/data/portfolioContent";
 
 export default function Header() {
     const prefersReducedMotion = usePrefersReducedMotion();
     const { toastSuccess, toastError } = useToast();
+    const headerContent = portfolioContent.header;
 
     const handleActionButton = async (
         text: string,
@@ -95,12 +97,12 @@ export default function Header() {
                         <div className="flex min-w-0 flex-col gap-1">
                             <div className="flex items-center justify-between">
                                 <div className="text-xl font-semibold tracking-tight sm:text-3xl md:text-4xl">
-                                    Deux Daniel Lim
+                                    {headerContent.fullName}
                                 </div>
                                 <div className="flex gap-2">
                                     <a
                                         className="inline-flex h-8 items-center justify-center gap-2 rounded-none px-2 transition-colors focus-visible:ring-2 focus-visible:ring-(--app-accent) focus-visible:outline-none active:scale-[0.98] sm:h-9 sm:w-24"
-                                        href="/resume.pdf"
+                                        href={headerContent.resumePath}
                                         download
                                     >
                                         <FaDownload className="text-sm text-(--app-accent) sm:text-base" />
@@ -109,16 +111,16 @@ export default function Header() {
                                 </div>
                             </div>
                             <div className="text-xs text-(--app-muted) md:text-sm">
-                                Full Stack Developer ( Laravel & React )
+                                {headerContent.role}
                             </div>
                         </div>
                         <div className="flex items-center justify-start gap-1 text-xs text-(--app-muted)">
                             <IoLocationOutline />
-                            Metro Manila
+                            {headerContent.location}
                         </div>
                         <div className="flex items-center justify-start gap-1 text-xs text-(--app-muted)">
-                            <IoBriefcase />3 years work experience | BS-IT
-                            Graduate | Cum Laude
+                            <IoBriefcase />
+                            {headerContent.workSummary}
                         </div>
                     </div>
                     {/* Bottom */}
@@ -158,18 +160,18 @@ export default function Header() {
                                 aria-label="Phone"
                                 className="app-chip flex cursor-pointer items-center justify-center gap-1 px-2.5 py-1.5 focus-visible:ring-2 focus-visible:ring-(--app-accent) focus-visible:outline-none"
                                 onClick={() =>
-                                    handleActionButton("+63 945-428-6156", {
+                                    handleActionButton(headerContent.phone, {
                                         withAction: true,
                                         actionHandler: () =>
                                             (window.location.href =
-                                                "tel:+63 945-428-6156"),
+                                                `tel:${headerContent.phone}`),
                                         toastMessage: "Phone number copied",
                                     })
                                 }
                             >
                                 <IoCall className="text-lg md:text-xl" />
                                 <div className="hidden font-light text-nowrap md:block md:text-xs">
-                                    +63 945-428-6156
+                                    {headerContent.phone}
                                 </div>
                             </button>
                             <button
@@ -178,18 +180,18 @@ export default function Header() {
                                 aria-label="Email"
                                 className="app-chip flex cursor-pointer items-center justify-center gap-1 px-2.5 py-1.5 focus-visible:ring-2 focus-visible:ring-(--app-accent) focus-visible:outline-none"
                                 onClick={() =>
-                                    handleActionButton("limdeux27@gmail.com", {
+                                    handleActionButton(headerContent.email, {
                                         withAction: true,
                                         actionHandler: () =>
                                             (window.location.href =
-                                                "mailto:limdeux27@gmail.com"),
+                                                `mailto:${headerContent.email}`),
                                         toastMessage: "Email copied",
                                     })
                                 }
                             >
                                 <IoMail className="text-lg md:text-xl" />
                                 <div className="hidden font-light md:block md:text-xs">
-                                    limdeux27@gmail.com
+                                    {headerContent.email}
                                 </div>
                             </button>
                         </div>

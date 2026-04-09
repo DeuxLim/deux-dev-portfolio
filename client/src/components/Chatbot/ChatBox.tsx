@@ -9,6 +9,7 @@ import { HiMiniPaperAirplane } from "react-icons/hi2";
 import { motion } from "motion/react";
 import usePrefersReducedMotion from "@/hooks/usePrefersReducedMotion";
 import ReactMarkdown from "react-markdown";
+import { portfolioContent } from "@/data/portfolioContent";
 
 export default function ChatBox() {
 	const { setIsChatOpen } = useChat();
@@ -59,7 +60,9 @@ export default function ChatBox() {
 						<div className="size-8 rounded-none overflow-clip border border-(--app-border)">
 							<img src={me} alt="" className="object-cover" />
 						</div>
-						<div className="flex-1 font-medium">Deux Lim</div>
+						<div className="flex-1 font-medium">
+							{portfolioContent.chat.botName}
+						</div>
 						<div className="flex gap-2 items-center justify-center">
 							<button
 								type="button"
@@ -138,7 +141,7 @@ export default function ChatBox() {
 				<div className="h-16 flex items-center justify-around gap-3 px-4 border-t border-(--app-border)">
 					<input
 						type="text"
-						placeholder="Aa"
+						placeholder={portfolioContent.chat.inputPlaceholder}
 						value={input}
 						className="bg-(--app-surface-2) border border-(--app-border) rounded-none px-4 h-9 flex-1 text-[13px] sm:text-sm outline-none focus-visible:ring-2 focus-visible:ring-(--app-accent)"
 						onChange={(e) => setInput(e.target.value)}

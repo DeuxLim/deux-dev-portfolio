@@ -1,4 +1,4 @@
-import type { PortfolioProject } from "@/data/projects";
+import type { PortfolioProject } from "@/data/portfolioContent";
 
 type ProjectCardProps = {
     project: PortfolioProject;

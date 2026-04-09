@@ -1,36 +1,19 @@
-const experiences = [
-	{
-		year: "2026",
-		position: "Full Stack Developer",
-		company: "Orro Group",
-	},
-	{
-		year: "2023",
-		position: "Frontend Developer Intern",
-		company: "Orro Group",
-	},
-	{
-		year: "2023",
-		position: "BS Information Technology",
-		company: "La Consolacion University",
-		honor: "Cum Laude",
-	},
-	{
-		year: "2020",
-		position: "Hello World!",
-		company: "",
-	},
-];
+import {
+	type TimelineItem,
+	portfolioContent,
+} from "@/data/portfolioContent";
 
-type Experience = (typeof experiences)[number];
+const experiences = portfolioContent.timeline.items;
 
 export default function Timeline() {
 	return (
 		<div className="space-y-4">
-			<div className="text-base sm:text-lg font-bold">Timeline</div>
+			<div className="text-base sm:text-lg font-bold">
+				{portfolioContent.timeline.title}
+			</div>
 			<div className="font-sans">
 				<div className="flex flex-col gap-2">
-					{experiences.map((exp: Experience, index: number) => (
+					{experiences.map((exp: TimelineItem, index: number) => (
 						<div
 							key={index}
 							className="flex flex-row items-start gap-2.5"

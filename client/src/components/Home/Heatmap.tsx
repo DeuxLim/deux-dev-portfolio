@@ -1,6 +1,7 @@
 import { GitHubCalendar } from "react-github-calendar";
 import useTheme from "@/context/Theme/useTheme";
 import { useEffect, useState } from "react";
+import { portfolioContent } from "@/data/portfolioContent";
 
 export default function Heatmap() {
 	const { isDarkMode } = useTheme();
@@ -19,11 +20,13 @@ export default function Heatmap() {
 
 	return (
 		<div className="space-y-4 w-full">
-			<div className="text-base sm:text-lg font-bold">Daily Coding Heat Map</div>
+			<div className="text-base sm:text-lg font-bold">
+				{portfolioContent.heatmap.title}
+			</div>
 
 			<div className="w-full overflow-x-auto">
 				<GitHubCalendar
-					username="deuxlim"
+					username={portfolioContent.heatmap.username}
 					blockSize={isCompact ? 10 : 12}
 					blockMargin={isCompact ? 2 : 3}
 					fontSize={isCompact ? 11 : 13}
@@ -31,7 +34,9 @@ export default function Heatmap() {
 					transformData={(contributions) => {
 						const now = new Date();
 						const sixMonthsAgo = new Date();
-						sixMonthsAgo.setMonth(now.getMonth() - 6);
+						sixMonthsAgo.setMonth(
+							now.getMonth() - portfolioContent.heatmap.monthsToShow,
+						);
 
 						return contributions.filter((day) => {
 							const date = new Date(day.date);

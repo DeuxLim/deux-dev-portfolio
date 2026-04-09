@@ -1,18 +1,7 @@
 import { useEffect, useState } from "react";
+import { portfolioContent } from "@/data/portfolioContent";
 
-const THINKING_WORDS = [
-	"Thinking",
-	"Discombobulating",
-	"Pondering",
-	"Calculating",
-	"Brewing",
-	"Conjuring",
-	"Vibing",
-	"Contemplating",
-	"Caffeinating",
-	"Synthesizing",
-	"Let me cook",
-];
+const THINKING_WORDS = portfolioContent.chat.thinkingWords;
 
 export function ChatThinkingLoader() {
 	const [index, setIndex] = useState(0);

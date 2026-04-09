@@ -1,36 +1,15 @@
-const experiences = [
-	{
-		role: "Full-Stack Developer",
-		fnName: "FullStackDeveloper",
-		company: "Orro Group",
-		period: "Mar 2023 — Present",
-		highlights: [
-			"Develop and maintain a large-scale enterprise platform for monitoring, ticketing, and workflow automation using Laravel, JavaScript/jQuery, MySQL, and Bootstrap",
-			"Lead integrations with external systems (Jira, ServiceNow, Freshservice), collaborating directly with client engineers to deliver reliable, real-time data synchronization",
-			"Build AI-powered features using Azure OpenAI to enhance automation and improve internal operational efficiency",
-			"Design and implement network automation solutions (device backups, remote command execution, monitoring) using SSH and REST APIs",
-			"Create event-driven automation workflows that reduce manual intervention and significantly improve incident response times",
-			"Consistently deliver bug fixes, performance optimizations, and UX improvements, contributing to system stability and scalability",
-		],
-	},
-	{
-		role: "Developer Intern",
-		fnName: "DeveloperIntern",
-		company: "Orro Group",
-		period: "Mar 2023 — Jun 2023",
-		highlights: [
-			"Supported development of a CRM system across frontend and backend",
-			"Fixed bugs and assisted in feature enhancements, improving system stability",
-			"Worked closely with senior developers, gaining hands-on experience in production workflows",
-		],
-	},
-];
+import {
+	type ExperienceItem,
+	portfolioContent,
+} from "@/data/portfolioContent";
+
+const experiences = portfolioContent.experience.items;
 
 export default function Experience() {
 	// Build a flat list of lines with their content and line numbers
 	const lines: { content: React.ReactNode }[] = [];
 
-	experiences.forEach((exp, i) => {
+	experiences.forEach((exp: ExperienceItem, i) => {
 		// comment line
 		lines.push({
 			content: (
@@ -81,7 +60,7 @@ export default function Experience() {
 			{/* Filename bar */}
 			<div className="flex items-center gap-2 border-b border-(--app-border) pb-2">
 				<span className="text-base sm:text-lg font-bold">
-					Experience
+					{portfolioContent.experience.title}
 				</span>
 			</div>
 
